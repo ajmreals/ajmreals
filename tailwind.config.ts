@@ -14,9 +14,11 @@ const config: Config = {
         border: "#222222",
         "text-primary": "#F5F5F5",
         "text-muted": "#888888",
-        accent: "#F5F5F5",
+        accent: "#2A9D8F",
+        "accent-light": "#3AAFA0",
       },
       fontFamily: {
+        heading: ["var(--font-montserrat)", "sans-serif"],
         sans: ["var(--font-geist-sans)", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
       },

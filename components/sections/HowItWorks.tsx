@@ -38,10 +38,10 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 0.1}>
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-4">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent mb-4">
                   {step.number}
                 </p>
-                <h3 className="text-base font-medium text-[#F5F5F5] mb-2">{step.title}</h3>
+                <h3 className="text-base font-heading font-semibold text-[#F5F5F5] mb-2">{step.title}</h3>
                 <p className="text-[#888] text-sm leading-relaxed">{step.description}</p>
               </div>
             </FadeIn>

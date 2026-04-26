@@ -132,7 +132,7 @@ export default function PortfolioPage() {
                 onClick={() => setActiveFilter(filter)}
                 className={`font-mono text-[11px] uppercase tracking-[0.1em] px-4 py-2 rounded border transition-all ${
                   activeFilter === filter
-                    ? "border-[#F5F5F5] text-[#F5F5F5] bg-[#F5F5F5]/5"
+                    ? "border-accent text-accent bg-accent/5"
                     : "border-[#222] text-[#888] hover:border-[#444] hover:text-[#F5F5F5]"
                 }`}
               >

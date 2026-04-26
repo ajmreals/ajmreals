@@ -32,7 +32,7 @@ export default function NavBar() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link
             href="/"
-            className="font-sans font-medium text-[#F5F5F5] text-lg tracking-tight"
+            className="font-heading font-semibold text-[#F5F5F5] text-lg tracking-tight"
           >
             AJM Reals
           </Link>
@@ -83,7 +83,7 @@ export default function NavBar() {
             className="fixed inset-0 z-[100] bg-[#0A0A0A] flex flex-col"
           >
             <div className="flex items-center justify-between px-6 h-16 border-b border-[#222]">
-              <span className="font-sans font-medium text-[#F5F5F5] text-lg">AJM Reals</span>
+              <span className="font-heading font-semibold text-[#F5F5F5] text-lg">AJM Reals</span>
               <button
                 onClick={() => setMobileOpen(false)}
                 className="p-2 text-[#888] hover:text-[#F5F5F5] transition-colors"

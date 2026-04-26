@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <p className="font-sans font-medium text-[#F5F5F5]">AJM Reals</p>
+            <p className="font-heading font-semibold text-[#F5F5F5]">AJM Reals</p>
             <p className="text-[#888] text-sm mt-1">
               Cinematic video, drone &amp; photography for real estate.
             </p>

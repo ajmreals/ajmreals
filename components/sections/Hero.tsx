@@ -43,7 +43,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-[#F5F5F5] leading-[1.05] mb-6"
+          className="text-5xl sm:text-6xl md:text-7xl font-heading font-bold tracking-tight text-[#F5F5F5] leading-[1.05] mb-6"
         >
           Content that closes.
         </motion.h1>

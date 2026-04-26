@@ -85,10 +85,10 @@ export default function WhatWeDo() {
             <FadeIn key={service.label} delay={i * 0.1}>
               <div className="bg-[#141414] border border-[#222] rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300">
                 <div className="text-[#888] mb-6">{service.icon}</div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-3">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent mb-3">
                   {service.label}
                 </p>
-                <h3 className="text-base font-medium text-[#F5F5F5] mb-3">{service.title}</h3>
+                <h3 className="text-base font-heading font-semibold text-[#F5F5F5] mb-3">{service.title}</h3>
                 <p className="text-[#888] text-sm leading-relaxed">{service.description}</p>
               </div>
             </FadeIn>

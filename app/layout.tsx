@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "AJM Reals — Real Estate Video, Drone & Photography",
@@ -23,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable}`}>
       <body className="bg-background text-text-primary font-sans antialiased">
         <NavBar />
         {children}

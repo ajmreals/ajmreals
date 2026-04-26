@@ -9,7 +9,7 @@ export default function CTABanner() {
           <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-6">
             Get started
           </p>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-[#F5F5F5] mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-semibold tracking-tight text-[#F5F5F5] mb-4">
             Ready to get started?
           </h2>
           <p className="text-[#888] text-lg mb-10">
