@@ -32,12 +32,32 @@ export default function Footer() {
             </Link>
           </nav>
         </div>
-        <div className="mt-8 pt-6 border-t border-[#222] flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+        <div className="mt-8 pt-6 border-t border-[#222] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
-            {/* TODO: Add social media links */}
             &copy; {new Date().getFullYear()} AJM Reals
           </p>
-          <p className="text-[#888] text-xs">All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <a
+              href="mailto:acruz928@gmail.com"
+              className="text-[#888] text-xs hover:text-[#F5F5F5] transition-colors"
+            >
+              acruz928@gmail.com
+            </a>
+            <a
+              href="tel:+13477887898"
+              className="text-[#888] text-xs hover:text-[#F5F5F5] transition-colors"
+            >
+              347-788-7898
+            </a>
+            <a
+              href="https://instagram.com/ajmreals"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#888] text-xs hover:text-[#F5F5F5] transition-colors"
+            >
+              @ajmreals
+            </a>
+          </div>
         </div>
       </div>
     </footer>

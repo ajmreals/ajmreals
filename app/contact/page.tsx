@@ -122,18 +122,43 @@ export default function ContactPage() {
           )}
 
           <FadeIn delay={0.2} className="mt-10 pt-10 border-t border-[#222]">
-            <div className="flex flex-col gap-2">
-              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
-                Direct email
-              </p>
-              {/* TODO: Replace with real business email */}
-              <a
-                href="mailto:hello@ajmreals.com"
-                className="text-[#F5F5F5] text-sm hover:text-[#888] transition-colors"
-              >
-                hello@ajmreals.com
-              </a>
-              <p className="text-[#888] text-xs mt-1">We respond within 24 hours.</p>
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-1.5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
+                  Email
+                </p>
+                <a
+                  href="mailto:acruz928@gmail.com"
+                  className="text-[#F5F5F5] text-sm hover:text-[#888] transition-colors"
+                >
+                  acruz928@gmail.com
+                </a>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
+                  Phone
+                </p>
+                <a
+                  href="tel:+13477887898"
+                  className="text-[#F5F5F5] text-sm hover:text-[#888] transition-colors"
+                >
+                  347-788-7898
+                </a>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
+                  Instagram
+                </p>
+                <a
+                  href="https://instagram.com/ajmreals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#F5F5F5] text-sm hover:text-[#888] transition-colors"
+                >
+                  @ajmreals
+                </a>
+              </div>
+              <p className="text-[#888] text-xs">We respond within 24 hours.</p>
             </div>
           </FadeIn>
 
