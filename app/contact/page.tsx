@@ -25,7 +25,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="pt-24 pb-24">
+    <main id="main-content" className="pt-24 pb-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-xl">
           <FadeIn className="mb-12">
@@ -81,10 +81,11 @@ export default function ContactPage() {
                   optional
                 />
                 <div className="flex flex-col gap-2">
-                  <label className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
+                  <label htmlFor="package-interest" className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
                     Package interest
                   </label>
                   <select
+                    id="package-interest"
                     value={form.package}
                     onChange={(e) => setForm({ ...form, package: e.target.value })}
                     className="bg-[#141414] border border-[#222] text-[#F5F5F5] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#444] transition-colors appearance-none cursor-pointer"
@@ -100,10 +101,11 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
+                  <label htmlFor="message" className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
                     Message
                   </label>
                   <textarea
+                    id="message"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Tell us about your listings, goals, or any questions…"
@@ -190,13 +192,15 @@ function Field({
   required?: boolean;
   optional?: boolean;
 }) {
+  const id = label.toLowerCase().replace(/\s+/g, "-");
   return (
     <div className="flex flex-col gap-2">
-      <label className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
+      <label htmlFor={id} className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
         {label}
         {optional && <span className="ml-2 normal-case text-[#555]">(optional)</span>}
       </label>
       <input
+        id={id}
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}

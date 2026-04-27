@@ -97,8 +97,9 @@ function ProjectCard({
         src={item.src}
         alt={item.title}
         fill
+        priority={tall}
         className="object-cover transition-transform duration-700 group-hover:scale-105"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+        sizes={tall ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
       />
 
       {/* Gradient overlay */}

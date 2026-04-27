@@ -113,7 +113,7 @@ export default function PortfolioPage() {
   });
 
   return (
-    <main className="pt-24 pb-24">
+    <main id="main-content" className="pt-24 pb-24">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn className="mb-12">
           <SectionHeader
@@ -152,7 +152,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.2 }}
             className="columns-1 sm:columns-2 lg:columns-3 gap-4"
           >
-            {filtered.map((item) => (
+            {filtered.map((item, i) => (
               <div
                 key={item.id}
                 className="break-inside-avoid mb-4 cursor-pointer group relative overflow-hidden rounded-xl bg-[#141414] border border-[#222]"
@@ -165,6 +165,8 @@ export default function PortfolioPage() {
                     alt={item.title}
                     width={item.width}
                     height={item.height}
+                    priority={i < 2}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {item.isVideo && (

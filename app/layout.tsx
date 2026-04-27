@@ -33,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable}`}>
       <body className="bg-background text-text-primary font-sans antialiased">
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <NavBar />
         {children}
         <Footer />

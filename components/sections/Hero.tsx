@@ -12,7 +12,8 @@ export default function Hero() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-25"
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover opacity-25 hidden sm:block"
         src="https://www.w3schools.com/html/mov_bbb.mp4"
       />
 

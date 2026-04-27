@@ -9,7 +9,7 @@ import CTABanner from "@/components/CTABanner";
 
 export default function HomePage() {
   return (
-    <main>
+    <main id="main-content">
       <Hero />
       <WhatWeDo />
       <FeaturedWork />
