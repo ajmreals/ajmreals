@@ -70,7 +70,7 @@ const services = [
 
 export default function WhatWeDo() {
   return (
-    <section className="py-24 md:py-32 border-t border-[#222]">
+    <section className="py-28 md:py-40 border-t border-[#222]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn className="mb-16">
           <SectionHeader
@@ -80,10 +80,10 @@ export default function WhatWeDo() {
           />
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, i) => (
             <FadeIn key={service.label} delay={i * 0.1}>
-              <div className="bg-[#141414] border border-[#222] rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300">
+              <div className="bg-[#141414] border border-[#222] rounded-xl p-10 shadow-card hover:-translate-y-1 hover:shadow-card-hover transition-all duration-300">
                 <div className="text-[#888] mb-6">{service.icon}</div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent mb-3">
                   {service.label}

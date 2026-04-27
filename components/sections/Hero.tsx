@@ -45,7 +45,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="text-5xl sm:text-6xl md:text-7xl font-heading font-bold tracking-tight text-[#F5F5F5] leading-[1.05] mb-6"
         >
-          Content that closes.
+          Content that{" "}
+          <span className="text-accent">closes.</span>
         </motion.h1>
 
         <motion.p
@@ -75,6 +76,28 @@ export default function Hero() {
           >
             See our work
           </Link>
+        </motion.div>
+
+        {/* Trust stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-8 mt-16 pt-8 border-t border-white/[0.07]"
+        >
+          {[
+            { value: "50+", label: "Properties shot" },
+            { value: "5★", label: "Client rating" },
+            { value: "48hr", label: "Avg. delivery" },
+            { value: "3yr", label: "In business" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="font-heading font-bold text-xl text-[#F5F5F5]">{stat.value}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#888] mt-1">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </motion.div>
       </div>
 

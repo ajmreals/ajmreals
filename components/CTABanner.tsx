@@ -3,7 +3,7 @@ import FadeIn from "./FadeIn";
 
 export default function CTABanner() {
   return (
-    <section className="py-24 md:py-32 bg-[#0A0A0A] border-t border-[#222]">
+    <section className="py-28 md:py-40 bg-[#0A0A0A] border-t border-[#222]">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <FadeIn>
           <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-6">

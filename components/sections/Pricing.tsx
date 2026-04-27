@@ -49,7 +49,7 @@ const packages = [
 
 export default function Pricing() {
   return (
-    <section id="packages" className="py-24 md:py-32 border-t border-[#222]">
+    <section id="packages" className="py-28 md:py-40 border-t border-[#222]">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn className="mb-16">
           <SectionHeader
@@ -60,7 +60,7 @@ export default function Pricing() {
           />
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
           {packages.map((pkg, i) => (
             <FadeIn key={pkg.name} delay={i * 0.1}>
               <PackageCard {...pkg} />

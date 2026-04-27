@@ -30,7 +30,7 @@ const reasons = [
 
 export default function WhyAJM() {
   return (
-    <section className="py-24 md:py-32 border-t border-[#222]">
+    <section className="py-28 md:py-40 border-t border-[#222]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>

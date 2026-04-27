@@ -31,10 +31,10 @@ export default function PackageCard({
 }: PackageCardProps) {
   return (
     <div
-      className={`relative rounded-xl p-8 flex flex-col gap-6 h-full transition-transform duration-300 hover:-translate-y-1 ${
+      className={`relative rounded-xl p-10 flex flex-col gap-6 h-full transition-all duration-300 hover:-translate-y-1 ${
         highlighted
-          ? "bg-[#141414] border border-accent/40"
-          : "bg-[#141414] border border-[#222]"
+          ? "bg-[#141414] border border-accent/40 shadow-card-accent hover:shadow-card-accent"
+          : "bg-[#141414] border border-[#222] shadow-card hover:shadow-card-hover"
       }`}
     >
       {highlighted && (
