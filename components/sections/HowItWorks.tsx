@@ -10,8 +10,7 @@ const steps = [
   {
     number: "02",
     title: "Content planning",
-    description:
-      "Monthly shoot schedule and a content calendar built around your pipeline.",
+    description: "Monthly shoot schedule and a content calendar built around your pipeline.",
   },
   {
     number: "03",
@@ -21,14 +20,13 @@ const steps = [
   {
     number: "04",
     title: "Review & renew",
-    description:
-      "We review results, refine the approach, and lock in the next term together.",
+    description: "We review results, refine the approach, and lock in the next term together.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="py-28 md:py-40 border-t border-[#222]">
+    <section className="py-28 md:py-40 bg-[#2A2A2A] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn className="mb-16 text-center">
           <SectionHeader label="Process" title="How it works." centered />
@@ -38,16 +36,4 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 0.1}>
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent mb-4">
-                  {step.number}
-                </p>
-                <h3 className="text-base font-heading font-semibold text-[#F5F5F5] mb-2">{step.title}</h3>
-                <p className="text-[#888] text-sm leading-relaxed">{step.description}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+                <p className="font-heading font-bold text-5xl text-[#2D5A3D] tracking-tight leading-none mb-4">
