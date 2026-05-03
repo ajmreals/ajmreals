@@ -14,16 +14,16 @@ export default function SectionHeader({
   return (
     <div className={centered ? "text-center" : ""}>
       {label && (
-        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] mb-4">
+        <p className="font-heading font-bold text-[11px] uppercase tracking-widest text-[#6DBF8A] mb-4">
           {label}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight text-[#F5F5F5]">
+      <h2 className="text-3xl md:text-4xl font-heading font-bold tracking-tight text-white">
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`mt-3 text-[#888] leading-relaxed max-w-2xl ${
+          className={`font-body mt-3 text-[#BDB5A0] leading-relaxed max-w-2xl ${
             centered ? "mx-auto" : ""
           }`}
         >
