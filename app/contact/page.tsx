@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
+import { submitLead } from "./actions";
 
 const packages = ["Starter", "Growth", "Partner", "Not sure"];
 
@@ -17,10 +18,9 @@ export default function ContactPage() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to a real form handler — Resend, Formspree, or a Next.js server action
-    console.log("Form submitted:", form);
+    await submitLead(form);
     setSubmitted(true);
   };
 
