@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { requestChecklist } from "@/app/checklist/actions";
+import { requestChecklist } from "@/app/(site)/checklist/actions";
 
 const PDF_PATH = "/ajm-reals-pre-shoot-checklist.pdf";
 
