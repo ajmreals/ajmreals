@@ -6,19 +6,17 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
-      {/* TODO: Replace with real video reel — looping, muted .mp4 hosted on CDN or similar */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover opacity-25 hidden sm:block"
-        src="https://www.w3schools.com/html/mov_bbb.mp4"
-      />
+      {/* [NEEDS: real video reel from client — looping, muted .mp4 of their own work] */}
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#0A0A0A]/55" />
+      {/* Ambient teal glow */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(42,157,143,0.10), transparent 70%)",
+        }}
+      />
 
       {/* Grain texture */}
       <div
