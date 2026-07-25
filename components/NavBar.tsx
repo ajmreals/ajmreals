@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "Work", href: "/portfolio" },
   { label: "Packages", href: "/#packages" },
+  { label: "Free checklist", href: "/checklist" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -51,6 +52,12 @@ export default function NavBar() {
             >
               Packages
             </a>
+            <Link
+              href="/checklist"
+              className="text-sm text-[#888] hover:text-[#F5F5F5] transition-colors"
+            >
+              Free checklist
+            </Link>
             <Link
               href="/contact"
               className="text-sm border border-[#F5F5F5] text-[#F5F5F5] px-4 py-1.5 rounded hover:bg-[#F5F5F5] hover:text-[#0A0A0A] transition-all"
