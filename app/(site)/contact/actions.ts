@@ -1,6 +1,7 @@
 "use server";
 
 import { getSupabase } from "@/lib/supabase";
+import { sendLeadAlert } from "@/lib/email";
 
 export async function submitLead(data: {
   name: string;
@@ -11,27 +12,29 @@ export async function submitLead(data: {
 }): Promise<{ success: boolean }> {
   const supabase = getSupabase();
 
-  const base = {
+  const lead = {
     name: data.name,
     email: data.email,
     phone: data.phone || null,
     package: data.package || null,
     message: data.message || null,
+    source: "contact",
   };
 
-  const { error } = await supabase
+  // Store first — a notification failure must never lose a real enquiry.
+  const { data: inserted, error } = await supabase
     .from("leads")
-    .insert([{ ...base, source: "contact" }]);
+    .insert([lead])
+    .select("id")
+    .single();
 
   if (error) {
-    // Migration 0002 adds `source`. Until it runs, retry without it so a real
-    // lead is never dropped over a missing column.
-    const { error: retryError } = await supabase.from("leads").insert([base]);
-    if (retryError) {
-      console.error("[lead insert]", retryError.message);
-    }
+    console.error("[contact lead insert]", error.message);
+    return { success: true };
   }
 
-  // Never surface a storage failure to the visitor — log for manual recovery.
+  // Notify second. sendLeadAlert never throws.
+  await sendLeadAlert({ ...lead, id: inserted.id });
+
   return { success: true };
 }

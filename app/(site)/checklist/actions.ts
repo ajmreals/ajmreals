@@ -1,6 +1,7 @@
 "use server";
 
 import { getSupabase } from "@/lib/supabase";
+import { sendLeadAlert } from "@/lib/email";
 
 export async function requestChecklist(data: {
   name: string;
@@ -9,25 +10,27 @@ export async function requestChecklist(data: {
 }): Promise<{ success: boolean }> {
   const supabase = getSupabase();
 
-  const base = {
+  const lead = {
     name: data.name,
     email: data.email,
     message: data.brokerage ? `Brokerage: ${data.brokerage}` : null,
+    source: "checklist",
   };
 
-  const { error } = await supabase
+  // Store first — the download must not depend on anything downstream.
+  const { data: inserted, error } = await supabase
     .from("leads")
-    .insert([{ ...base, source: "checklist" }]);
+    .insert([lead])
+    .select("id")
+    .single();
 
   if (error) {
-    // Migration 0002 adds `source`. Until it runs, retry without it so a real
-    // lead is never dropped over a missing column.
-    const { error: retryError } = await supabase.from("leads").insert([base]);
-    if (retryError) {
-      console.error("[checklist lead insert]", retryError.message);
-    }
+    console.error("[checklist lead insert]", error.message);
+    return { success: true };
   }
 
-  // Never block the download on a storage failure.
+  // Notify second. sendLeadAlert never throws.
+  await sendLeadAlert({ ...lead, id: inserted.id });
+
   return { success: true };
 }
