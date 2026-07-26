@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { updateStatus, addNote } from "@/app/admin/actions";
 import { STATUSES } from "@/lib/crm";
+import LocalTime from "@/components/admin/LocalTime";
 
 type Note = {
   id: string;
@@ -127,7 +128,7 @@ export default function LeadControls({
                 </p>
                 <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#888] mt-2">
                   {n.author ? `${n.author} · ` : ""}
-                  {new Date(n.created_at).toLocaleString()}
+                  <LocalTime iso={n.created_at} />
                 </p>
               </div>
             ))}

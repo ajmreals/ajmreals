@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { STATUSES } from "@/lib/crm";
 import StatusBadge from "@/components/admin/StatusBadge";
+import LocalTime from "@/components/admin/LocalTime";
 
 export const dynamic = "force-dynamic";
 
@@ -16,18 +17,6 @@ type Lead = {
   status: string;
   source?: string | null;
 };
-
-function relative(iso: string) {
-  const diff = Date.now() - new Date(iso).getTime();
-  const mins = Math.round(diff / 60000);
-  if (mins < 1) return "just now";
-  if (mins < 60) return `${mins}m ago`;
-  const hrs = Math.round(mins / 60);
-  if (hrs < 24) return `${hrs}h ago`;
-  const days = Math.round(hrs / 24);
-  if (days < 30) return `${days}d ago`;
-  return new Date(iso).toLocaleDateString();
-}
 
 export default async function AdminDashboard({
   searchParams,
@@ -189,7 +178,7 @@ export default async function AdminDashboard({
                   {lead.source ?? "contact"}
                 </p>
                 <p className="text-[#888] text-xs mt-1">
-                  {relative(lead.created_at)}
+                  <LocalTime iso={lead.created_at} relative />
                 </p>
               </div>
             </Link>

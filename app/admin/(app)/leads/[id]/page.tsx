@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import StatusBadge from "@/components/admin/StatusBadge";
 import LeadControls from "@/components/admin/LeadControls";
+import LocalTime from "@/components/admin/LocalTime";
 
 export const dynamic = "force-dynamic";
 
@@ -40,12 +41,32 @@ export default async function LeadDetail({
     .eq("lead_id", params.id)
     .order("created_at", { ascending: false });
 
-  const fields: [string, string | null][] = [
-    ["Email", lead.email],
-    ["Phone", lead.phone],
+  const fields: [string, React.ReactNode][] = [
+    [
+      "Email",
+      lead.email && (
+        <a
+          href={`mailto:${lead.email}`}
+          className="underline underline-offset-4 hover:text-accent"
+        >
+          {lead.email}
+        </a>
+      ),
+    ],
+    [
+      "Phone",
+      lead.phone && (
+        <a
+          href={`tel:${lead.phone}`}
+          className="underline underline-offset-4 hover:text-accent"
+        >
+          {lead.phone}
+        </a>
+      ),
+    ],
     ["Package", lead.package],
     ["Source", lead.source ?? "contact"],
-    ["Received", new Date(lead.created_at).toLocaleString()],
+    ["Received", <LocalTime key="received" iso={lead.created_at} />],
   ];
 
   return (
@@ -75,27 +96,7 @@ export default async function LeadDetail({
               {label}
             </p>
             <p className="text-[#F5F5F5] text-sm break-words">
-              {value ? (
-                label === "Email" ? (
-                  <a
-                    href={`mailto:${value}`}
-                    className="underline underline-offset-4 hover:text-accent"
-                  >
-                    {value}
-                  </a>
-                ) : label === "Phone" ? (
-                  <a
-                    href={`tel:${value}`}
-                    className="underline underline-offset-4 hover:text-accent"
-                  >
-                    {value}
-                  </a>
-                ) : (
-                  value
-                )
-              ) : (
-                <span className="text-[#666]">—</span>
-              )}
+              {value || <span className="text-[#888]">—</span>}
             </p>
           </div>
         ))}
