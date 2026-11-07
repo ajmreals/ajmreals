@@ -17,11 +17,12 @@ export type WorkItem = {
   type: "Real Estate" | "Construction";
 };
 
+// Order matters: the first item is the full-width hero on the home page.
 export const work: WorkItem[] = [
   {
-    vimeoId: "1188836371",
-    title: "Schaefer St",
-    location: "Brooklyn, NY",
+    vimeoId: "1191399545",
+    title: "Mallard Dr",
+    location: "Lloyd Harbor, NY",
     category: "Video",
     type: "Real Estate",
   },
@@ -33,9 +34,9 @@ export const work: WorkItem[] = [
     type: "Real Estate",
   },
   {
-    vimeoId: "1191399545",
-    title: "Mallard Dr",
-    location: "Lloyd Harbor, NY",
+    vimeoId: "1188836371",
+    title: "Schaefer St",
+    location: "Brooklyn, NY",
     category: "Video",
     type: "Real Estate",
   },
