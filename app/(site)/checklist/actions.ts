@@ -24,13 +24,15 @@ export async function requestChecklist(data: {
     .select("id")
     .single();
 
-  if (error) {
-    console.error("[checklist lead insert]", error.message);
-    return { success: true };
-  }
+  if (error) console.error("[checklist lead insert]", error.message);
 
-  // Notify second. sendLeadAlert never throws.
-  await sendLeadAlert({ ...lead, id: inserted.id });
+  // Notify ALWAYS — even when the write failed. If the database is paused or
+  // down, this email is the only record of the enquiry, and it says so.
+  await sendLeadAlert({
+    ...lead,
+    id: inserted?.id ?? null,
+    saved: !error,
+  });
 
   return { success: true };
 }

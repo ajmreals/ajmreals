@@ -1,13 +1,16 @@
 import { Resend } from "resend";
 
 type LeadEmail = {
-  id: string;
+  /** Null when the database write failed — there is no CRM row to link to. */
+  id: string | null;
   name: string;
   email: string;
   phone?: string | null;
   package?: string | null;
   message?: string | null;
   source: string;
+  /** False when the lead could not be stored, so this email is the only record. */
+  saved: boolean;
 };
 
 const SITE_URL =
@@ -16,18 +19,22 @@ const SITE_URL =
 /**
  * Emails the owner that a lead came in.
  *
- * Never throws. The lead is already saved by the time this runs, so a missing
- * API key, a Resend outage, or a network blip must not surface to the visitor
- * or lose the lead — it just logs for manual follow-up.
+ * Sent whether or not the database write succeeded. When the database is
+ * unreachable — a paused project, an outage — this email is the ONLY record of
+ * the enquiry, so it must still go out and must say so plainly.
+ *
+ * Never throws: a missing API key or a Resend outage logs and moves on.
  */
 export async function sendLeadAlert(lead: LeadEmail): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.LEAD_ALERT_TO;
 
   if (!apiKey || !to) {
-    console.warn(
-      "[lead alert] skipped — RESEND_API_KEY or LEAD_ALERT_TO not set. Lead %s is saved in the CRM.",
-      lead.id
+    console.error(
+      "[lead alert] NOT SENT — RESEND_API_KEY or LEAD_ALERT_TO missing. Lead from %s <%s>%s",
+      lead.name,
+      lead.email,
+      lead.saved ? " is saved in the CRM." : " WAS NOT SAVED AND IS NOW LOST."
     );
     return;
   }
@@ -38,7 +45,9 @@ export async function sendLeadAlert(lead: LeadEmail): Promise<void> {
       from: process.env.LEAD_ALERT_FROM ?? "AJM Reals <onboarding@resend.dev>",
       to: [to],
       replyTo: lead.email,
-      subject: `New lead: ${lead.name} (${lead.source})`,
+      subject: lead.saved
+        ? `New lead: ${lead.name} (${lead.source})`
+        : `⚠ New lead NOT SAVED: ${lead.name} (${lead.source})`,
       html: renderLeadEmail(lead),
       text: renderLeadText(lead),
     });
@@ -91,15 +100,32 @@ function renderLeadEmail(lead: LeadEmail) {
       <div style="color:#2A9D8F;font-size:11px;text-transform:uppercase;
                   letter-spacing:.14em;margin-top:3px;">New lead</div>
     </td></tr>
+    ${
+      lead.saved
+        ? ""
+        : `<tr><td style="background:#FEF2F2;border-bottom:1px solid #FECACA;padding:16px 26px;">
+      <div style="color:#991B1B;font-size:13px;font-weight:700;margin-bottom:4px;">
+        Not saved to the CRM
+      </div>
+      <div style="color:#7F1D1D;font-size:13px;line-height:1.5;">
+        The database could not be reached, so this email is the only record of
+        this enquiry. Save the details below before deleting it.
+      </div>
+    </td></tr>`
+    }
     <tr><td style="padding:26px;">
       <div style="font-size:21px;font-weight:700;color:#111827;margin-bottom:18px;">
         ${esc(lead.name)}
       </div>
       <table role="presentation" width="100%" style="border-collapse:collapse;">${cells}</table>
-      <a href="${SITE_URL}/admin/leads/${lead.id}"
+      ${
+        lead.id
+          ? `<a href="${SITE_URL}/admin/leads/${lead.id}"
          style="display:inline-block;margin-top:24px;background:#2A9D8F;color:#fff;
                 text-decoration:none;padding:11px 20px;border-radius:6px;
-                font-size:14px;font-weight:600;">Open in CRM</a>
+                font-size:14px;font-weight:600;">Open in CRM</a>`
+          : ""
+      }
       <p style="margin:18px 0 0;color:#6B7280;font-size:12px;line-height:1.5;">
         Reply to this email to respond to ${esc(lead.name)} directly.
       </p>
@@ -111,10 +137,16 @@ function renderLeadEmail(lead: LeadEmail) {
 function renderLeadText(lead: LeadEmail) {
   const lines = rows(lead).map(([l, v]) => `${l}: ${v}`);
   return [
-    `New lead: ${lead.name}`,
+    lead.saved ? `New lead: ${lead.name}` : `NEW LEAD — NOT SAVED: ${lead.name}`,
+    ...(lead.saved
+      ? []
+      : [
+          "",
+          "The database could not be reached, so this email is the only record",
+          "of this enquiry. Save the details below before deleting it.",
+        ]),
     "",
     ...lines,
-    "",
-    `Open in CRM: ${SITE_URL}/admin/leads/${lead.id}`,
+    ...(lead.id ? ["", `Open in CRM: ${SITE_URL}/admin/leads/${lead.id}`] : []),
   ].join("\n");
 }
