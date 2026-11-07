@@ -64,8 +64,10 @@ export default async function Image() {
           <div style={{ fontSize: 30, fontWeight: 700, color: "#F5F5F5" }}>
             {site.name}
           </div>
+          {/* Full state names, not abbreviations — this card is the first
+              thing anyone sees when the site is shared. */}
           <div style={{ fontSize: 22, color: "#888888" }}>
-            NY · NJ · CT · MA
+            {site.areaServed.join("  ·  ")}
           </div>
         </div>
       </div>
