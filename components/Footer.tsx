@@ -33,9 +33,17 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-8 pt-6 border-t border-[#222] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
-            &copy; {new Date().getFullYear()} AJM Reals
-          </p>
+          <div className="flex items-center gap-5">
+            <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888]">
+              &copy; {new Date().getFullYear()} AJM Reals
+            </p>
+            <Link
+              href="/privacy"
+              className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#888] hover:text-[#F5F5F5] transition-colors"
+            >
+              Privacy
+            </Link>
+          </div>
           <div className="flex items-center gap-6">
             <a
               href="mailto:acruz928@gmail.com"
