@@ -7,13 +7,27 @@ import { requestChecklist } from "@/app/(site)/checklist/actions";
 const PDF_PATH = "/ajm-reals-pre-shoot-checklist.pdf";
 
 export default function ChecklistForm() {
-  const [form, setForm] = useState({ name: "", email: "", brokerage: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    brokerage: "",
+    website: "", // honeypot — real people never see or fill this
+  });
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    await requestChecklist(form);
+    setError(null);
+
+    const res = await requestChecklist(form);
+
+    if (!res.success) {
+      setError(res.error ?? "Something went wrong. Please try again.");
+      setStatus("idle");
+      return;
+    }
     setStatus("done");
   };
 
@@ -95,10 +109,34 @@ export default function ChecklistForm() {
           optional
         />
 
+        {/* Honeypot: off-screen, not tabbable, hidden from screen readers.
+            Bots fill every input they find; a real visitor never touches it. */}
+        <div aria-hidden className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+          <label htmlFor="cl-website">Website</label>
+          <input
+            id="cl-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={(e) => setForm({ ...form, website: e.target.value })}
+          />
+        </div>
+
+        {error && (
+          <p
+            role="alert"
+            className="text-sm text-[#E8756B] bg-[#E8756B]/10 border border-[#E8756B]/25 rounded-lg px-4 py-3"
+          >
+            {error}
+          </p>
+        )}
+
         <button
           type="submit"
           disabled={status === "sending"}
-          className="bg-accent text-white py-3.5 rounded text-sm hover:bg-accent-light transition-all mt-1 disabled:opacity-60"
+          className="bg-accent text-[#06231F] font-medium py-3.5 rounded text-sm hover:bg-accent-light transition-all mt-1 disabled:opacity-60"
         >
           {status === "sending" ? "One moment…" : "Send me the checklist"}
         </button>

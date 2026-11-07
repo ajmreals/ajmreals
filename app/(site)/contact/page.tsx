@@ -15,12 +15,24 @@ export default function ContactPage() {
     phone: "",
     package: "",
     message: "",
+    website: "", // honeypot — real people never see or fill this
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await submitLead(form);
+    setSending(true);
+    setError(null);
+
+    const res = await submitLead(form);
+
+    setSending(false);
+    if (!res.success) {
+      setError(res.error ?? "Something went wrong. Please try again.");
+      return;
+    }
     setSubmitted(true);
   };
 
@@ -113,11 +125,37 @@ export default function ContactPage() {
                     className="bg-[#141414] border border-[#222] text-[#F5F5F5] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#444] transition-colors resize-none placeholder:text-[#555]"
                   />
                 </div>
+
+                {/* Honeypot: off-screen, not tabbable, hidden from screen
+                    readers. Bots fill every input they find. */}
+                <div aria-hidden className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={(e) => setForm({ ...form, website: e.target.value })}
+                  />
+                </div>
+
+                {error && (
+                  <p
+                    role="alert"
+                    className="text-sm text-[#E8756B] bg-[#E8756B]/10 border border-[#E8756B]/25 rounded-lg px-4 py-3"
+                  >
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="border border-[#F5F5F5] text-[#F5F5F5] py-3.5 rounded text-sm hover:bg-[#F5F5F5] hover:text-[#0A0A0A] transition-all mt-2"
+                  disabled={sending}
+                  className="border border-[#F5F5F5] text-[#F5F5F5] py-3.5 rounded text-sm hover:bg-[#F5F5F5] hover:text-[#0A0A0A] transition-all mt-2 disabled:opacity-60"
                 >
-                  Send message
+                  {sending ? "Sending…" : "Send message"}
                 </button>
               </form>
             </FadeIn>
