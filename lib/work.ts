@@ -20,21 +20,21 @@ export type WorkItem = {
 export const work: WorkItem[] = [
   {
     vimeoId: "1188836371",
-    title: "107 Schaefer St",
+    title: "Schaefer St",
     location: "Brooklyn, NY",
     category: "Video",
     type: "Real Estate",
   },
   {
     vimeoId: "1188837187",
-    title: "7 Ridgeview",
+    title: "Ridgeview",
     location: "White Plains, NY",
     category: "Video",
     type: "Real Estate",
   },
   {
     vimeoId: "1191399545",
-    title: "19 Mallard Dr",
+    title: "Mallard Dr",
     location: "Lloyd Harbor, NY",
     category: "Video",
     type: "Real Estate",
