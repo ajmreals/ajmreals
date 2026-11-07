@@ -18,7 +18,8 @@ const config: Config = {
         "accent-light": "#3AAFA0",
       },
       fontFamily: {
-        heading: ["var(--font-montserrat)", "sans-serif"],
+        // Family name declared by @fontsource-variable/montserrat.
+        heading: ["Montserrat Variable", "Montserrat", "sans-serif"],
         sans: ["var(--font-geist-sans)", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
       },
