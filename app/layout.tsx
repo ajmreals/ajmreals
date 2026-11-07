@@ -7,16 +7,31 @@ import { GeistMono } from "geist/font/mono";
 // hosting removes the dependency, and serves the font from our own domain.
 import "@fontsource-variable/montserrat";
 import "./globals.css";
+import StructuredData from "@/components/StructuredData";
+import { SITE_URL, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "AJM Reals — Real Estate Video, Drone & Photography",
-  description:
-    "Monthly content retainers for real estate agents, developers, and builders. Cinematic video, drone aerials, and photography — all in one package.",
+  // Without this, Open Graph and canonical URLs resolve relative and break
+  // when a page is shared.
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${site.name} — ${site.tagline}`,
+    // Child pages set their own title; this frames it.
+    template: `%s — ${site.name}`,
+  },
+  description: site.description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "AJM Reals — Real Estate Video, Drone & Photography",
-    description:
-      "Monthly content retainers for real estate agents, developers, and builders. Cinematic video, drone aerials, and photography — all in one package.",
     type: "website",
+    siteName: site.name,
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
   },
 };
 
@@ -28,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="bg-background text-text-primary font-sans antialiased">
+        <StructuredData />
         {children}
       </body>
     </html>

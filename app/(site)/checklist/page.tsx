@@ -4,15 +4,19 @@ import SectionHeader from "@/components/SectionHeader";
 import ChecklistForm from "@/components/ChecklistForm";
 
 export const metadata: Metadata = {
-  title: "The Pre-Shoot Checklist — Free Property Prep Guide | AJM Reals",
+  // The root layout appends "— AJM Reals", so the brand is left off here.
+  title: "The Pre-Shoot Checklist",
   description:
     "A free two-page checklist for real estate agents: exactly what to prep at 48 hours, 24 hours, and the morning of a photo or video shoot — plus how to time the light.",
-  alternates: { canonical: "https://ajmreals.com/checklist" },
+  // Relative, so it resolves against metadataBase. It previously pointed at
+  // https://ajmreals.com, which does not resolve.
+  alternates: { canonical: "/checklist" },
   openGraph: {
     title: "The Pre-Shoot Checklist — Free Property Prep Guide",
     description:
       "What to prep at 48 hours, 24 hours, and the morning of a real estate shoot. Free two-page PDF from AJM Reals.",
     type: "article",
+    url: "/checklist",
   },
 };
 

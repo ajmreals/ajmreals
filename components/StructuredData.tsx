@@ -1,0 +1,93 @@
+import { SITE_URL, site } from "@/lib/site";
+
+/**
+ * Structured data for search engines and AI answer engines.
+ *
+ * ProfessionalService (a LocalBusiness subtype) rather than plain
+ * LocalBusiness: AJM serves a region rather than trading from a storefront,
+ * so there is no postal address to publish. areaServed carries that instead.
+ */
+export default function StructuredData() {
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": `${SITE_URL}/#business`,
+        name: site.name,
+        description: site.description,
+        url: SITE_URL,
+        email: site.email,
+        telephone: site.phone,
+        foundingDate: site.founded,
+        priceRange: site.priceRange,
+        image: `${SITE_URL}/opengraph-image`,
+        sameAs: [site.instagram],
+        areaServed: site.areaServed.map((name) => ({
+          "@type": "AdministrativeArea",
+          name,
+        })),
+        knowsAbout: [
+          "Real estate videography",
+          "Listing walkthrough video",
+          "Drone aerial photography",
+          "Real estate photography",
+          "2D floor plans",
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Real estate content packages",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              name: "Single listing film",
+              description:
+                "One cinematic walkthrough video for homes up to 1,000 sq ft. Photos and a 2D floor plan available as add-ons.",
+              price: "400",
+              priceCurrency: "USD",
+            },
+            {
+              "@type": "Offer",
+              name: "Starter retainer",
+              description: "2 videos and 5 edited photos a month. 3-month minimum.",
+              price: "1500",
+              priceCurrency: "USD",
+            },
+            {
+              "@type": "Offer",
+              name: "Growth retainer",
+              description:
+                "5 videos, 15 edited photos, drone and social cuts a month. 6-month minimum.",
+              price: "3000",
+              priceCurrency: "USD",
+            },
+            {
+              "@type": "Offer",
+              name: "Partner retainer",
+              description:
+                "10 videos, 30+ edited photos, drone, social cuts and usage rights a month. 12-month term.",
+              price: "5500",
+              priceCurrency: "USD",
+            },
+          ],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: site.name,
+        description: site.description,
+        publisher: { "@id": `${SITE_URL}/#business` },
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      // Built from our own constants, not user input.
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+    />
+  );
+}
