@@ -2,6 +2,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 import PackageCard from "@/components/PackageCard";
+import { site } from "@/lib/site";
 
 const packages = [
   {
@@ -132,7 +133,10 @@ export default function Pricing() {
 
         <FadeIn delay={0.4} className="mt-8 text-center">
           <p className="text-[#888] text-sm">
-            Larger home or something custom?{" "}
+            {/* Out-of-state belongs here, not in the service area: it's a
+                quoted exception with travel on top, not a routine offer. */}
+            Larger home, outside {site.areaServedShort.join("/")}, or something
+            custom?{" "}
             <a
               href="/contact"
               className="text-[#F5F5F5] underline underline-offset-4 hover:no-underline"
