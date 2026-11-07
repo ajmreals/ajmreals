@@ -98,6 +98,11 @@ export default function PrivacyPage() {
                     governs that.
                   </Item>
                   <Item>
+                    <strong className="text-[#F5F5F5]">Google Analytics</strong>{" "}
+                    — measures site traffic. It sees your visit, not what you
+                    type into our forms.
+                  </Item>
+                  <Item>
                     <strong className="text-[#F5F5F5]">Railway</strong> — hosts
                     this website and keeps standard server logs.
                   </Item>
@@ -108,12 +113,39 @@ export default function PrivacyPage() {
                 </p>
               </Section>
 
-              <Section title="Cookies and tracking">
+              <Section title="Cookies and analytics">
                 <p>
-                  This site sets no advertising or tracking cookies of its own.
+                  We use Google Analytics to see how many people visit the
+                  site, which pages they read, and roughly where they came
+                  from. It sets cookies in your browser and tells us things
+                  like your approximate city and what kind of device you used.
+                  We use it to understand what&apos;s working on the site —
+                  not to build a profile of you, and never to target
+                  advertising.
+                </p>
+                <p className="mt-3">
+                  We also record when someone submits a form, so we can tell
+                  how many enquiries came from which page. That record is a
+                  count — it does not include your name, email, or anything
+                  else you typed.
+                </p>
+                <p className="mt-3">
                   Embedded Vimeo players may set their own cookies when you
-                  play a video. If we add website analytics in future, we will
-                  say so here before doing it.
+                  play a video. Beyond those two, we set no advertising or
+                  tracking cookies.
+                </p>
+                <p className="mt-3">
+                  If you&apos;d rather not be counted, browser do-not-track
+                  settings, ad blockers, and Google&apos;s own{" "}
+                  <a
+                    href="https://tools.google.com/dlpage/gaoptout"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-[#F5F5F5] transition-colors"
+                  >
+                    opt-out add-on
+                  </a>{" "}
+                  all work here.
                 </p>
               </Section>
 

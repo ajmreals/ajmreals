@@ -8,6 +8,7 @@ import { GeistMono } from "geist/font/mono";
 import "@fontsource-variable/montserrat";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
+import Analytics from "@/components/Analytics";
 import { SITE_URL, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="bg-background text-text-primary font-sans antialiased">
         <StructuredData />
+        <Analytics />
         {children}
       </body>
     </html>

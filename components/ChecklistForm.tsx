@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { trackLead } from "@/lib/analytics";
 import { requestChecklist } from "@/app/(site)/checklist/actions";
 
 const PDF_PATH = "/ajm-reals-pre-shoot-checklist.pdf";
@@ -28,6 +29,7 @@ export default function ChecklistForm() {
       setStatus("idle");
       return;
     }
+    trackLead("checklist");
     setStatus("done");
   };
 

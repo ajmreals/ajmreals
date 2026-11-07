@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
+import { trackLead } from "@/lib/analytics";
 import { submitLead } from "@/app/(site)/contact/actions";
 
 const packages = [
@@ -39,6 +40,7 @@ export default function ContactForm() {
       setError(res.error ?? "Something went wrong. Please try again.");
       return;
     }
+    trackLead("contact");
     setSubmitted(true);
   };
 
