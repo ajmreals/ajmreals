@@ -1,38 +1,24 @@
 import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 
-// TODO: Replace with real client testimonials and photos
-const testimonials = [
-  {
-    quote:
-      "AJM Reals transformed how we present listings. Our properties are selling faster and at higher asking prices since we started the monthly retainer.",
-    name: "Sarah M.",
-    role: "Realtor",
-    company: "Compass NYC",
-    initials: "SM",
-    rating: 5,
-  },
-  {
-    quote:
-      "The drone footage alone is worth every penny. Buyers comment on the aerials constantly — it sets our listings apart on Zillow and StreetEasy.",
-    name: "James T.",
-    role: "Principal Broker",
-    company: "Corcoran Group",
-    initials: "JT",
-    rating: 5,
-  },
-  {
-    quote:
-      "No one understands construction timelines and developer needs like AJM. Consistent, on time, and cinematic every single shoot.",
-    name: "Marco R.",
-    role: "Development Director",
-    company: "Urban Edge Builders",
-    initials: "MR",
-    rating: 5,
-  },
-];
+type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  initials: string;
+  rating: number;
+};
+
+// Real, attributable client quotes only — every entry here is published as
+// genuine feedback from a named person at a named company. Never seed this
+// with examples or placeholders.
+const testimonials: Testimonial[] = [];
 
 export default function Testimonials() {
+  // Nothing to show yet — render nothing rather than an empty section.
+  if (testimonials.length === 0) return null;
+
   return (
     <section className="py-28 md:py-40 border-t border-[#222]">
       <div className="max-w-6xl mx-auto px-6">
