@@ -48,6 +48,16 @@ const testimonials: Testimonial[] = [
     // This client gave an explicit star rating, so the stars are shown.
     rating: 5,
   },
+  {
+    quote:
+      "AJM was so friendly and professional, I don't even look to book with anyone else. 10/10.",
+    name: "Ken Shazar",
+    role: "Agent",
+    company: "Prestige Homes Realty",
+    initials: "KS",
+    // Rated 10/10 — full marks, shown as five stars on this five-star scale.
+    rating: 5,
+  },
 ];
 
 // Keep every row full: one quote centred, two or four side by side in pairs,
