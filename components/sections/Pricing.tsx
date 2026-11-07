@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 import PackageCard from "@/components/PackageCard";
@@ -55,7 +56,7 @@ export default function Pricing() {
           <SectionHeader
             label="Packages"
             title="Simple, predictable pricing."
-            subtitle="Monthly retainers for agents, developers, and builders who need consistent content — without the headache of one-off bookings."
+            subtitle="Monthly retainers for agents, developers, and builders who need content every month — or a single listing when that's all you need."
             centered
           />
         </FadeIn>
@@ -68,9 +69,56 @@ export default function Pricing() {
           ))}
         </div>
 
-        <FadeIn delay={0.3} className="mt-8 text-center">
+        {/* One-off booking — the entry point for agents not ready for a
+            retainer, and where the add-ons get sold. */}
+        <FadeIn delay={0.3} className="mt-6 md:mt-8">
+          <div className="bg-[#141414] border border-[#222] rounded-xl shadow-card p-8 md:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 lg:items-center">
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent mb-3">
+                  Single listing
+                </p>
+                <div className="flex items-baseline gap-3 mb-3">
+                  <p className="text-3xl font-heading font-bold text-[#F5F5F5]">
+                    $400
+                  </p>
+                  <p className="text-[#888] text-sm">one-off</p>
+                </div>
+                <p className="text-[#888] text-sm leading-relaxed max-w-md">
+                  One cinematic walkthrough video of your listing, for homes up
+                  to 1,000 sq ft. No retainer, no minimum term.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+                  {[
+                    { label: "Add photos", price: "+$250" },
+                    { label: "Add a floor plan", price: "+$50" },
+                  ].map((addon) => (
+                    <div key={addon.label} className="flex items-baseline gap-2">
+                      <span className="text-[#F5F5F5] text-sm">
+                        {addon.label}
+                      </span>
+                      <span className="font-mono text-sm text-accent">
+                        {addon.price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                href="/contact"
+                className="shrink-0 inline-block text-center bg-accent text-[#06231F] font-medium px-7 py-3.5 rounded text-sm hover:bg-accent-light transition-all"
+              >
+                Book a listing
+              </Link>
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.4} className="mt-8 text-center">
           <p className="text-[#888] text-sm">
-            Need something custom?{" "}
+            Larger home or something custom?{" "}
             <a
               href="/contact"
               className="text-[#F5F5F5] underline underline-offset-4 hover:no-underline"
