@@ -86,21 +86,35 @@ export default function Pricing() {
                 </div>
                 <p className="text-[#888] text-sm leading-relaxed max-w-md">
                   One cinematic walkthrough video of your listing, for homes up
-                  to 1,000 sq ft. No retainer, no minimum term.
+                  to 1,000 sq ft. Add $75 per additional 500 sq ft. No
+                  retainer, no minimum term.
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+                <div className="mt-6 flex flex-wrap gap-2">
                   {[
-                    { label: "Add photos", price: "+$275" },
-                    { label: "Add a 2D floor plan", price: "+$50" },
+                    { label: "Photos", price: "+$275" },
+                    { label: "2D floor plan", price: "+$50" },
+                    { label: "Both", price: "+$300", save: "save $25" },
                   ].map((addon) => (
-                    <div key={addon.label} className="flex items-baseline gap-2">
+                    <div
+                      key={addon.label}
+                      className={`flex items-baseline gap-2 rounded-lg border px-4 py-2.5 ${
+                        addon.save
+                          ? "border-accent/40 bg-accent/5"
+                          : "border-[#222]"
+                      }`}
+                    >
                       <span className="text-[#F5F5F5] text-sm">
                         {addon.label}
                       </span>
                       <span className="font-mono text-sm text-accent">
                         {addon.price}
                       </span>
+                      {addon.save && (
+                        <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#888]">
+                          {addon.save}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
