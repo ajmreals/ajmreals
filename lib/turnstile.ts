@@ -30,7 +30,7 @@ export async function verifyTurnstile(token: string | undefined): Promise<boolea
     const data = (await res.json()) as { success?: boolean };
     return data.success === true;
   } catch (err) {
-    // Cloudflare unreachable. Accept rather than lose a real enquiry — the
+    // Cloudflare unreachable. Accept rather than lose a real inquiry — the
     // other layers (schema, honeypot, rate limit) still apply.
     console.error("[turnstile] verification failed open:", (err as Error).message);
     return true;

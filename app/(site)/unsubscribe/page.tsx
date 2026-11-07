@@ -80,7 +80,7 @@ export default function UnsubscribePage({
           Stop receiving emails?
         </h1>
         <p className="text-[#888] text-sm leading-relaxed mb-8">
-          We&apos;ll take you off the list straight away. Your enquiry stays
+          We&apos;ll take you off the list straight away. Your inquiry stays
           with us so we can still reply if you reach out.
         </p>
         <form action={unsubscribe}>

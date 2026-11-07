@@ -7,38 +7,49 @@ import { SITE_URL, site } from "@/lib/site";
  * emails, both written to be useful on their own; someone who never hires us
  * should still be glad they opened them.
  */
+/**
+ * A paragraph, or a highlighted callout.
+ *
+ * Callouts carry the visual weight that images would, without the cost:
+ * most mail clients block remote images until the reader allows them, and an
+ * image-heavy email is far more likely to be filed under Promotions than
+ * read. Emoji always render, so warmth comes from those and from the accent
+ * block rather than from pictures.
+ */
+export type Block = string | { tip: string };
+
 export type FollowUp = {
   step: number;
   /** Days after the lead was created. */
   afterDays: number;
   subject: string;
-  /** Plain-text body. `name` is the lead's first name. */
-  body: (name: string) => string[];
+  /** `name` is the lead's first name. */
+  body: (name: string) => Block[];
 };
 
 export const sequence: FollowUp[] = [
   {
     step: 1,
     afterDays: 3,
-    subject: "The bit of the checklist people skip",
+    subject: "💡 Two minutes, better photos",
     body: (name) => [
-      `Hi ${name},`,
-      "You grabbed our pre-shoot checklist a few days ago — hope it's been useful.",
-      "If you only act on one line of it, make it the bulbs. Mismatched colour temperature is the single most common thing we fix in post: one warm bulb beside two cool ones turns a white kitchen faintly green, and correcting it costs editing time on every frame of the room. Four matching bulbs is about twelve dollars and ten minutes.",
-      "The second one worth the effort: shoot exteriors in the ninety minutes before sunset. Same house, same camera, completely different listing.",
-      "If you want a hand with any of it, just reply — happy to talk through a specific property.",
+      `Hi ${name} — hope the checklist has been useful.`,
+      "If you do one thing off it, do the bulbs 💡",
+      { tip: "One warm bulb next to two cool ones turns a white kitchen green on camera. Four matching bulbs: about $12, ten minutes, and it saves hours in editing." },
+      "Second best: shoot the outside in the 90 minutes before sunset 🌇 Same house, same camera, completely different listing.",
+      "Got a property coming up? Just hit reply.",
     ],
   },
   {
     step: 2,
     afterDays: 14,
-    subject: "Worth putting a camera on?",
+    subject: "🎥 One listing, no commitment",
     body: (name) => [
       `Hi ${name},`,
-      "Quick one. If you've got a listing coming up that deserves more than phone photos, we shoot single listings without any retainer or commitment.",
-      "$400 covers a cinematic walkthrough film for a home up to 1,000 sq ft. Photos are $275, a 2D floor plan is $50, or both for $300. Larger homes are $75 per extra 500 sq ft.",
+      "Quick one — we shoot single listings with no retainer and no minimum.",
+      { tip: "🎥 Walkthrough film — $400\n📸 Add photos — $275\n📐 Add a 2D floor plan — $50\n✨ Both — $300\n\nUp to 1,000 sq ft. Larger homes +$75 per 500 sq ft." },
       `We cover ${site.areaServed.join(", ")}.`,
-      "No pressure at all — if the checklist was the useful bit, that's fine too. Reply any time if a property comes up.",
+      "No pressure — if the checklist was the useful bit, that's great too 👍",
     ],
   },
 ];
@@ -69,9 +80,15 @@ export function renderFollowUp(
          border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);">
     <tr><td style="padding:30px 32px;">
       ${paragraphs
-        .map(
-          (p) =>
-            `<p style="margin:0 0 16px;color:#111827;font-size:15px;line-height:1.6;">${esc(p)}</p>`
+        .map((p) =>
+          typeof p === "string"
+            ? `<p style="margin:0 0 16px;color:#111827;font-size:15px;line-height:1.6;">${esc(p)}</p>`
+            : `<table role="presentation" width="100%" style="margin:0 0 18px;background:#F2F9F8;
+                      border-left:3px solid #2A9D8F;border-radius:0 6px 6px 0;">
+                 <tr><td style="padding:14px 18px;color:#1F3B37;font-size:15px;line-height:1.65;">
+                   ${esc(p.tip).replace(/\n/g, "<br>")}
+                 </td></tr>
+               </table>`
         )
         .join("")}
       <p style="margin:24px 0 0;color:#111827;font-size:15px;line-height:1.6;">
@@ -89,7 +106,7 @@ export function renderFollowUp(
 </body></html>`;
 
   const text = [
-    ...paragraphs,
+    ...paragraphs.map((p) => (typeof p === "string" ? p : p.tip)),
     "",
     `— Anthony, ${site.name}`,
     "",

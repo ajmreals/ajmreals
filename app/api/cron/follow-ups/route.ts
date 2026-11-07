@@ -26,7 +26,7 @@ const MAX_AGE_TO_ENROL_DAYS = 30;
  * them, which is the better failure for a marketing email.
  *
  * Deliberately narrow. A lead is only chased when ALL of these hold:
- *   - it came from the checklist (contact-form enquiries get a human reply)
+ *   - it came from the checklist (contact-form inquiries get a human reply)
  *   - it is still "new" (if the owner has moved it on, they're handling it)
  *   - it hasn't unsubscribed
  *   - the step is due and hasn't already been sent

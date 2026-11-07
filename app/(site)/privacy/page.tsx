@@ -65,7 +65,7 @@ export default function PrivacyPage() {
 
               <Section title="Why we have it">
                 <p>
-                  To answer your enquiry, to send you the checklist if you
+                  To answer your inquiry, to send you the checklist if you
                   asked for it, and to keep track of conversations we&apos;re
                   having with prospective clients. If you download the
                   checklist we may occasionally email you about our work; every
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
                 </p>
                 <p className="mt-3">
                   We also record when someone submits a form, so we can tell
-                  how many enquiries came from which page. That record is a
+                  how many inquiries came from which page. That record is a
                   count — it does not include your name, email, or anything
                   else you typed.
                 </p>
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
 
               <Section title="How long we keep it">
                 <p>
-                  Enquiries are kept while we may still reasonably be doing
+                  Inquiries are kept while we may still reasonably be doing
                   business together, and are removed on request. If you ask us
                   to delete your details, we will do so and confirm.
                 </p>

@@ -57,7 +57,7 @@ export async function requestChecklist(input: {
   if (error) console.error("[checklist lead insert]", error.message);
 
   // Notify ALWAYS — even when the write failed. If the database is paused or
-  // down, this email is the only record of the enquiry, and it says so.
+  // down, this email is the only record of the inquiry, and it says so.
   await sendLeadAlert({ ...lead, id: inserted?.id ?? null, saved: !error });
 
   return { success: true };

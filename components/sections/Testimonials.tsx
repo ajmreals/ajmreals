@@ -60,7 +60,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-// Keep every row full: one quote centred, two or four side by side in pairs,
+// Keep every row full: one quote centered, two or four side by side in pairs,
 // anything else in threes.
 const columns: Record<number, string> = {
   1: "max-w-xl mx-auto",

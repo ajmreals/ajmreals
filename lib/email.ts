@@ -21,7 +21,7 @@ const SITE_URL =
  *
  * Sent whether or not the database write succeeded. When the database is
  * unreachable — a paused project, an outage — this email is the ONLY record of
- * the enquiry, so it must still go out and must say so plainly.
+ * the inquiry, so it must still go out and must say so plainly.
  *
  * Never throws: a missing API key or a Resend outage logs and moves on.
  */
@@ -109,7 +109,7 @@ function renderLeadEmail(lead: LeadEmail) {
       </div>
       <div style="color:#7F1D1D;font-size:13px;line-height:1.5;">
         The database could not be reached, so this email is the only record of
-        this enquiry. Save the details below before deleting it.
+        this inquiry. Save the details below before deleting it.
       </div>
     </td></tr>`
     }
@@ -143,7 +143,7 @@ function renderLeadText(lead: LeadEmail) {
       : [
           "",
           "The database could not be reached, so this email is the only record",
-          "of this enquiry. Save the details below before deleting it.",
+          "of this inquiry. Save the details below before deleting it.",
         ]),
     "",
     ...lines,
