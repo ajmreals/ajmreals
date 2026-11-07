@@ -90,7 +90,7 @@ export default function Hero() {
             { value: "$100M", label: "In showings filmed" },
             { value: "5★", label: "Client rating" },
             { value: "Quick", label: "Turnaround" },
-            { value: "Est. 2022", label: "Serving New York" },
+            { value: "Est. 2022", label: "NY · NJ · CT · MA" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="font-heading font-bold text-xl text-[#F5F5F5]">{stat.value}</p>
