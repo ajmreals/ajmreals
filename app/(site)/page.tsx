@@ -6,6 +6,7 @@ import Pricing from "@/components/sections/Pricing";
 import WhyAJM from "@/components/sections/WhyAJM";
 import HowItWorks from "@/components/sections/HowItWorks";
 import ChecklistBanner from "@/components/sections/ChecklistBanner";
+import OtherBusinesses from "@/components/sections/OtherBusinesses";
 import CTABanner from "@/components/CTABanner";
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
       <WhyAJM />
       <HowItWorks />
       <ChecklistBanner />
+      <OtherBusinesses />
       <CTABanner />
     </main>
   );

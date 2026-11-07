@@ -6,7 +6,14 @@ import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 import { submitLead } from "./actions";
 
-const packages = ["Starter", "Growth", "Partner", "Not sure"];
+const packages = [
+  "Starter",
+  "Growth",
+  "Partner",
+  "Single listing (one-off)",
+  "Not sure",
+  "Other business (not real estate)",
+];
 
 export default function ContactPage() {
   const [form, setForm] = useState({
