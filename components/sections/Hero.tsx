@@ -88,7 +88,6 @@ export default function Hero() {
               something in this list the owner has confirmed. */}
           {[
             { value: "$100M", label: "In showings filmed" },
-            { value: "5★", label: "Client rating" },
             { value: "Quick", label: "Turnaround" },
             { value: "Est. 2022", label: "NY · NJ · CT · MA" },
           ].map((stat) => (
