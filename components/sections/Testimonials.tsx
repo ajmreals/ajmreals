@@ -22,6 +22,13 @@ const testimonials: Testimonial[] = [
     company: "Compass Realty",
     initials: "DB",
   },
+  {
+    quote:
+      "Anthony was so professional, on time, and a blast to work with — highly recommended!",
+    name: "Sylvia Fu",
+    company: "eXp Realty",
+    initials: "SF",
+  },
 ];
 
 // One quote shouldn't stretch across a three-column grid.
