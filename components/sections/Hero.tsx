@@ -84,11 +84,13 @@ export default function Hero() {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="flex flex-wrap items-center justify-center gap-8 mt-16 pt-8 border-t border-white/[0.07]"
         >
+          {/* Every figure here is a claim about the business — only put
+              something in this list the owner has confirmed. */}
           {[
-            { value: "50+", label: "Properties shot" },
+            { value: "$100M", label: "In showings filmed" },
             { value: "5★", label: "Client rating" },
-            { value: "48hr", label: "Avg. delivery" },
-            { value: "3yr", label: "In business" },
+            { value: "Quick", label: "Turnaround" },
+            { value: "Est. 2022", label: "Serving New York" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="font-heading font-bold text-xl text-[#F5F5F5]">{stat.value}</p>
