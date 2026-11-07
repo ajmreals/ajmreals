@@ -1,8 +1,8 @@
 # AJM Reals
 
 > Real estate video, drone, and photography. Cinematic listing films for
-> agents, developers, and builders across New York, New Jersey, Connecticut,
-> and Massachusetts. Established 2022.
+> agents, developers, and builders across New York, New Jersey, and Connecticut.
+> Established 2022.
 
 ## What we do
 
@@ -35,7 +35,7 @@ restaurants, and medspas and clinics.
 
 ## Service area
 
-New York, New Jersey, Connecticut, Massachusetts. Recent work includes
+New York, New Jersey, Connecticut. Recent work includes
 Brooklyn NY, White Plains NY, and Lloyd Harbor NY.
 
 ## Free resource

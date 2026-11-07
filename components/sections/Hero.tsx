@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { site } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -89,7 +90,7 @@ export default function Hero() {
           {[
             { value: "$100M", label: "In showings filmed" },
             { value: "Quick", label: "Turnaround" },
-            { value: "Est. 2022", label: "NY · NJ · CT · MA" },
+            { value: "Est. 2022", label: site.areaServedShort.join(" · ") },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="font-heading font-bold text-xl text-[#F5F5F5]">{stat.value}</p>

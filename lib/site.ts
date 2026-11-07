@@ -15,13 +15,17 @@ export const site = {
   legalName: "AJM Reals",
   tagline: "Real Estate Video, Drone & Photography",
   description:
-    "Cinematic listing films, drone aerials, and photography for real estate agents, developers, and builders across New York, New Jersey, Connecticut, and Massachusetts. Monthly retainers or one-off listings from $400.",
+    "Cinematic listing films, drone aerials, and photography for real estate agents, developers, and builders across New York, New Jersey, and Connecticut. Monthly retainers or one-off listings from $400.",
   email: "acruz928@gmail.com",
   phone: "+1-347-788-7898",
   instagram: "https://instagram.com/ajmreals",
   founded: "2022",
-  // Owner-confirmed service area.
-  areaServed: ["New York", "New Jersey", "Connecticut", "Massachusetts"],
+  // Owner-confirmed service area. Change it here and the hero, portfolio,
+  // contact page, share card, structured data and follow-up emails all
+  // follow — nothing restates it.
+  areaServed: ["New York", "New Jersey", "Connecticut"],
+  /** Same list, for places too narrow for full state names. */
+  areaServedShort: ["NY", "NJ", "CT"],
   // Google reads this as a rough band, not exact pricing.
   priceRange: "$$",
 } as const;
