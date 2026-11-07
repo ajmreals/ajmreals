@@ -91,8 +91,8 @@ export default function Pricing() {
 
                 <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
                   {[
-                    { label: "Add photos", price: "+$250" },
-                    { label: "Add a floor plan", price: "+$50" },
+                    { label: "Add photos", price: "+$275" },
+                    { label: "Add a 2D floor plan", price: "+$50" },
                   ].map((addon) => (
                     <div key={addon.label} className="flex items-baseline gap-2">
                       <span className="text-[#F5F5F5] text-sm">
