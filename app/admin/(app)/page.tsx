@@ -38,7 +38,7 @@ export default async function AdminDashboard({
             Could not load leads
           </p>
           <p className="text-[#888] text-sm">{error.message}</p>
-          <p className="text-[#555] text-xs mt-4">
+          <p className="text-[#808080] text-xs mt-4">
             If this mentions a missing table, column, or policy, migrations
             0002 and 0003 have not been applied yet.
           </p>

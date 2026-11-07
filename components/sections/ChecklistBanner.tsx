@@ -34,7 +34,7 @@ export default function ChecklistBanner() {
 
               <Link
                 href="/checklist"
-                className="shrink-0 inline-block text-center bg-accent text-white px-7 py-3.5 rounded text-sm hover:bg-accent-light transition-all"
+                className="shrink-0 inline-block text-center bg-accent text-[#06231F] font-medium px-7 py-3.5 rounded text-sm hover:bg-accent-light transition-all"
               >
                 Get the checklist
               </Link>

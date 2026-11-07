@@ -39,7 +39,7 @@ export default function PackageCard({
     >
       {highlighted && (
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.1em] bg-accent text-white px-3 py-1 rounded-full whitespace-nowrap">
+          <span className="font-mono text-[10px] uppercase tracking-[0.1em] bg-accent text-[#06231F] px-3 py-1 rounded-full whitespace-nowrap">
             Most popular
           </span>
         </div>
@@ -92,7 +92,7 @@ function Feature({
   return (
     <div className="flex items-center justify-between gap-4">
       <span className="text-[#888] text-sm">{label}</span>
-      <span className={`text-sm ${highlight ? "text-[#F5F5F5]" : "text-[#555]"}`}>{value}</span>
+      <span className={`text-sm ${highlight ? "text-[#F5F5F5]" : "text-[#808080]"}`}>{value}</span>
     </div>
   );
 }

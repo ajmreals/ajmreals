@@ -51,11 +51,11 @@ export default function ChecklistForm() {
         <a
           href={PDF_PATH}
           download
-          className="inline-block bg-accent text-white px-6 py-3.5 rounded text-sm hover:bg-accent-light transition-all"
+          className="inline-block bg-accent text-[#06231F] font-medium px-6 py-3.5 rounded text-sm hover:bg-accent-light transition-all"
         >
           Download the PDF
         </a>
-        <p className="text-[#555] text-xs mt-5">
+        <p className="text-[#808080] text-xs mt-5">
           Trouble downloading? Email{" "}
           <a
             href="mailto:acruz928@gmail.com"
@@ -141,7 +141,7 @@ export default function ChecklistForm() {
           {status === "sending" ? "One moment…" : "Send me the checklist"}
         </button>
 
-        <p className="text-[#555] text-xs leading-relaxed">
+        <p className="text-[#808080] text-xs leading-relaxed">
           We&apos;ll only use this to send you the checklist and the occasional
           note about our work. Unsubscribe anytime.
         </p>
@@ -177,7 +177,7 @@ function ChecklistField({
       >
         {label}
         {optional && (
-          <span className="ml-2 normal-case text-[#555]">(optional)</span>
+          <span className="ml-2 normal-case text-[#808080]">(optional)</span>
         )}
       </label>
       <input
@@ -187,7 +187,7 @@ function ChecklistField({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="bg-[#0A0A0A] border border-[#222] text-[#F5F5F5] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#444] transition-colors placeholder:text-[#555]"
+        className="bg-[#0A0A0A] border border-[#222] text-[#F5F5F5] rounded-lg px-4 py-3 text-sm outline-none focus:border-[#444] transition-colors placeholder:text-[#808080]"
       />
     </div>
   );
