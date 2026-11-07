@@ -19,6 +19,7 @@ const testimonials: Testimonial[] = [
   {
     quote: "Anthony of AJM Reals did an AMAZING JOB — we are so happy.",
     name: "Daniel Belasario",
+    role: "Agent",
     company: "Compass Realty",
     initials: "DB",
   },
@@ -26,15 +27,35 @@ const testimonials: Testimonial[] = [
     quote:
       "Anthony was so professional, on time, and a blast to work with — highly recommended!",
     name: "Sylvia Fu",
+    role: "Agent",
     company: "eXp Realty",
     initials: "SF",
   },
+  {
+    quote:
+      "I was BLOWN away by the results of the video and the turnover speed.",
+    name: "Anthony Labella",
+    role: "Agent",
+    company: "eXp Realty",
+    initials: "AL",
+  },
+  {
+    quote: "I give this man 5 stars!",
+    name: "JP Archange",
+    role: "Agent",
+    company: "Revived Residential",
+    initials: "JP",
+    // This client gave an explicit star rating, so the stars are shown.
+    rating: 5,
+  },
 ];
 
-// One quote shouldn't stretch across a three-column grid.
+// Keep every row full: one quote centred, two or four side by side in pairs,
+// anything else in threes.
 const columns: Record<number, string> = {
   1: "max-w-xl mx-auto",
   2: "md:grid-cols-2 max-w-4xl mx-auto",
+  4: "md:grid-cols-2 max-w-4xl mx-auto",
 };
 
 export default function Testimonials() {
