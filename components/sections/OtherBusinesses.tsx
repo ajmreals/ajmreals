@@ -46,7 +46,7 @@ export default function OtherBusinesses() {
             </div>
 
             {proof && (
-              <figure className="w-full max-w-[260px] mx-auto md:mx-0 shrink-0">
+              <figure className="order-first md:order-none w-full max-w-[260px] mx-auto md:mx-0 shrink-0">
                 <VimeoEmbed
                   vimeoId={proof.vimeoId}
                   title={proof.title}
