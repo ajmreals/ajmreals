@@ -50,7 +50,7 @@ export default function OtherBusinesses() {
               // Side by side even on phones: stacked, tall clips would run on
               // for several screens.
               <div
-                className={`order-first lg:order-none grid gap-4 md:gap-6 w-full mx-auto lg:mx-0 shrink-0 ${
+                className={`grid gap-4 md:gap-6 w-full mx-auto lg:mx-0 shrink-0 ${
                   proof.length === 1
                     ? "grid-cols-1 max-w-[260px]"
                     : proof.length === 2
