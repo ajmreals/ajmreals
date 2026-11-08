@@ -95,8 +95,16 @@ export default function PortfolioPage({
             ) : (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
                 {filtered.map((item) => (
-                  <figure key={item.vimeoId}>
-                    <VimeoEmbed vimeoId={item.vimeoId} title={item.title} />
+                  <figure
+                    key={item.vimeoId}
+                    // Vertical clips would tower over the row at full column width.
+                    className={item.aspect ? "max-w-[320px] w-full mx-auto" : undefined}
+                  >
+                    <VimeoEmbed
+                      vimeoId={item.vimeoId}
+                      title={item.title}
+                      aspect={item.aspect}
+                    />
                     <figcaption className="mt-4">
                       <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent mb-1.5">
                         {item.category} / {item.type}

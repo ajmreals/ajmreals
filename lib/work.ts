@@ -12,9 +12,11 @@ export type WorkItem = {
   title: string;
   /** Shown under the title. Omit rather than guess. */
   location?: string;
-  category: "Video" | "Drone" | "Photography";
+  category: "Video" | "Drone" | "Photography" | "Agent Brand Film";
   /** Property type, for the portfolio filters. */
   type: "Real Estate" | "Construction";
+  /** Leave out for landscape. "9 / 16" for vertical clips. */
+  aspect?: "9 / 16";
 };
 
 // Order matters: the first item is the full-width hero on the home page.
@@ -39,6 +41,15 @@ export const work: WorkItem[] = [
     location: "Brooklyn, NY",
     category: "Video",
     type: "Real Estate",
+  },
+  {
+    // Not a listing: a launch film for two agents starting a team at Compass.
+    vimeoId: "1244819050",
+    title: "Daniel & Brianna, Compass",
+    location: "Rockaway & Brooklyn, NY",
+    category: "Agent Brand Film",
+    type: "Real Estate",
+    aspect: "9 / 16",
   },
 ];
 

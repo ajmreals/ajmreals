@@ -32,8 +32,12 @@ export default function FeaturedWork() {
         </div>
 
         <FadeIn>
-          <figure>
-            <VimeoEmbed vimeoId={lead.vimeoId} title={lead.title} />
+          <figure className={lead.aspect ? "max-w-[320px] mx-auto" : undefined}>
+            <VimeoEmbed
+              vimeoId={lead.vimeoId}
+              title={lead.title}
+              aspect={lead.aspect}
+            />
             <figcaption className="mt-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent mb-1.5">
                 {lead.category}
@@ -52,8 +56,12 @@ export default function FeaturedWork() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-12">
             {rest.map((item, i) => (
               <FadeIn key={item.vimeoId} delay={i * 0.1}>
-                <figure>
-                  <VimeoEmbed vimeoId={item.vimeoId} title={item.title} />
+                <figure className={item.aspect ? "max-w-[320px] mx-auto" : undefined}>
+                  <VimeoEmbed
+                    vimeoId={item.vimeoId}
+                    title={item.title}
+                    aspect={item.aspect}
+                  />
                   <figcaption className="mt-4">
                     <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent mb-1.5">
                       {item.category}
