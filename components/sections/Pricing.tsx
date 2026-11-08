@@ -8,6 +8,10 @@ import { site } from "@/lib/site";
 // here reads as a cap, and "5 photos" undersells a shoot that produces far
 // more than that — the count argued against the package instead of for it.
 // On a one-off they stay a priced add-on, where a buyer does need the number.
+//
+// Drone is on every tier for the same reason. Withholding a capability as an
+// upsell only works once a buyer already wants you; until then it just makes
+// the entry tier look incomplete next to competitors who include it.
 const packages = [
   {
     name: "Starter",
@@ -16,7 +20,7 @@ const packages = [
     videos: "2/mo",
     shootDays: "1/mo",
     photos: true,
-    drone: false,
+    drone: true,
     socialCuts: false,
     revisions: "1 round",
     delivery: "10 days",

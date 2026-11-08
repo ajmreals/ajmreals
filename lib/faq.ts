@@ -46,7 +46,7 @@ export const faq: FaqItem[] = [
   {
     question: "Do you fly a drone?",
     answer:
-      "Drone aerials are included in the Growth and Partner retainers. On a single listing or a Starter retainer, mention it when you book and we'll quote it. Drone needs clear skies and wind under 20 mph — we watch the forecast and will call it off rather than deliver footage that looks rough.",
+      "Drone aerials are included on every retainer tier, Starter included. On a single listing, mention it when you book and we'll quote it. Drone needs clear skies and wind under 20 mph — we watch the forecast and will call it off rather than hand you footage that looks rough.",
   },
   {
     question: "Are you licensed to fly the drone?",

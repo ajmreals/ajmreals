@@ -62,7 +62,7 @@ export default function StructuredData() {
               "@type": "Offer",
               name: "Starter retainer",
               description:
-                "2 videos a month plus edited photography. 3-month minimum.",
+                "2 videos a month plus edited photography and drone aerials. 3-month minimum.",
               price: "1500",
               priceCurrency: "USD",
             },
