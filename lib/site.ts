@@ -17,6 +17,12 @@ export const site = {
   description:
     "Cinematic listing films, drone aerials, and photography for real estate agents, developers, and builders across New York, New Jersey, and Connecticut. Monthly retainers or one-off listings from $400.",
   email: "acruz928@gmail.com",
+  /**
+   * Envelope sender for outbound mail. Uses the send. subdomain verified in
+   * Resend — the root domain carries Microsoft 365's SPF, and a domain may
+   * only have one SPF record. Override with LEAD_ALERT_FROM.
+   */
+  from: "AJM Reals <anthony@send.ajmreals.nyc>",
   phone: "+1-347-788-7898",
   instagram: "https://instagram.com/ajmreals",
   founded: "2022",

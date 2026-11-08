@@ -55,7 +55,7 @@ export async function GET(request: Request) {
 
   const supabase = getSupabase();
   const resend = new Resend(apiKey);
-  const from = process.env.LEAD_ALERT_FROM ?? `${site.name} <onboarding@resend.dev>`;
+  const from = process.env.LEAD_ALERT_FROM ?? site.from;
 
   const { data: leads, error } = await supabase
     .from("leads")

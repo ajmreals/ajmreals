@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 // One source for the origin — this file had its own copy, which meant the
 // "Open in CRM" link in lead alerts could outlive a domain change.
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, site } from "@/lib/site";
 
 type LeadEmail = {
   /** Null when the database write failed — there is no CRM row to link to. */
@@ -42,7 +42,7 @@ export async function sendLeadAlert(lead: LeadEmail): Promise<void> {
   try {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: process.env.LEAD_ALERT_FROM ?? "AJM Reals <onboarding@resend.dev>",
+      from: process.env.LEAD_ALERT_FROM ?? site.from,
       to: [to],
       replyTo: lead.email,
       subject: lead.saved
