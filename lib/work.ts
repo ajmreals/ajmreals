@@ -41,3 +41,26 @@ export const work: WorkItem[] = [
     type: "Real Estate",
   },
 ];
+
+/**
+ * Work outside real estate. Kept apart from `work` on purpose: the Featured
+ * Work section and the portfolio are pitched at agents, so these only show
+ * in the home page's "Not in real estate?" section.
+ */
+export type OtherWorkItem = {
+  vimeoId: string;
+  title: string;
+  /** Short label shown above the title, e.g. "Nightlife / Event". */
+  label: string;
+  /** "9 / 16" for vertical clips, "16 / 9" for landscape. */
+  aspect: "9 / 16" | "16 / 9";
+};
+
+export const otherWork: OtherWorkItem[] = [
+  {
+    vimeoId: "1244818638",
+    title: "Social Raid at Aura",
+    label: "Nightlife / Event",
+    aspect: "9 / 16",
+  },
+];

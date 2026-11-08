@@ -9,10 +9,13 @@ export default function VimeoEmbed({
   vimeoId,
   title,
   className = "",
+  aspect = "16 / 9",
 }: {
   vimeoId: string;
   title: string;
   className?: string;
+  /** CSS aspect-ratio. Default is landscape; use "9 / 16" for vertical clips. */
+  aspect?: string;
 }) {
   const src =
     `https://player.vimeo.com/video/${vimeoId}` +
@@ -21,7 +24,7 @@ export default function VimeoEmbed({
   return (
     <div
       className={`relative w-full overflow-hidden rounded-xl bg-[#141414] border border-[#222] ${className}`}
-      style={{ aspectRatio: "16 / 9" }}
+      style={{ aspectRatio: aspect }}
     >
       <iframe
         src={src}
