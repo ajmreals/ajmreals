@@ -7,7 +7,7 @@
 // The live origin. Override with NEXT_PUBLIC_SITE_URL when a custom domain is
 // pointed at the app — sitemap, canonicals and OG tags all follow it.
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ajmreals-production.up.railway.app"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ajmreals.nyc"
 ).replace(/\/$/, "");
 
 export const site = {

@@ -1,4 +1,7 @@
 import { Resend } from "resend";
+// One source for the origin — this file had its own copy, which meant the
+// "Open in CRM" link in lead alerts could outlive a domain change.
+import { SITE_URL } from "@/lib/site";
 
 type LeadEmail = {
   /** Null when the database write failed — there is no CRM row to link to. */
@@ -12,9 +15,6 @@ type LeadEmail = {
   /** False when the lead could not be stored, so this email is the only record. */
   saved: boolean;
 };
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ajmreals-production.up.railway.app";
 
 /**
  * Emails the owner that a lead came in.
