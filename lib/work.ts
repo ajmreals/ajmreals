@@ -51,12 +51,6 @@ export const work: WorkItem[] = [
     type: "Real Estate",
     aspect: "9 / 16",
   },
-  {
-    vimeoId: "1244818763",
-    title: "Reception at Woodbury Manor",
-    label: "Wedding / Long Island",
-    aspect: "9 / 16",
-  },
 ];
 
 /**
