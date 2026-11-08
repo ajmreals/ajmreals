@@ -4,14 +4,30 @@ import SectionHeader from "@/components/SectionHeader";
 import PackageCard from "@/components/PackageCard";
 import { site } from "@/lib/site";
 
-// Photos are included on every tier and deliberately not counted. A number
-// here reads as a cap, and "5 photos" undersells a shoot that produces far
-// more than that — the count argued against the package instead of for it.
-// On a one-off they stay a priced add-on, where a buyer does need the number.
-//
-// Drone is on every tier for the same reason. Withholding a capability as an
-// upsell only works once a buyer already wants you; until then it just makes
-// the entry tier look incomplete next to competitors who include it.
+/**
+ * Things every retainer gets, stated once above the cards instead of as a
+ * repeated row inside each.
+ *
+ * Photos were counted per tier (5/15/30+) until a count on a retainer read
+ * as a cap and undersold the shoot. Drone was withheld from Starter as an
+ * upsell, which only works once a buyer already wants you — before that it
+ * makes the entry tier look incomplete beside competitors who include it.
+ *
+ * Delivery was a 10/7/5 ladder. Per shoot day the workload is much the same
+ * on every tier, so that ladder was throttling Starter to flatter Partner,
+ * and it left the cheapest, no-commitment option (a one-off, four days) as
+ * the fastest thing on the site. One number everywhere is easier to honour
+ * and a better promise than a tier you have to buy your way out of.
+ *
+ * Three identical rows would have made the ladder look weaker than it is,
+ * hence lifting them out: the cards now carry only what actually differs.
+ */
+const universal = [
+  "Edited photography",
+  "Drone aerials",
+  "Delivery within 4 days",
+];
+
 const packages = [
   {
     name: "Starter",
@@ -19,11 +35,8 @@ const packages = [
     term: "3-month minimum",
     videos: "2/mo",
     shootDays: "1/mo",
-    photos: true,
-    drone: true,
     socialCuts: false,
     revisions: "1 round",
-    delivery: "10 days",
     extras: [],
     highlighted: false,
   },
@@ -33,11 +46,8 @@ const packages = [
     term: "6-month minimum",
     videos: "5/mo",
     shootDays: "2/mo",
-    photos: true,
-    drone: true,
     socialCuts: true,
     revisions: "2 rounds",
-    delivery: "7 days",
     extras: ["Content calendar"],
     highlighted: true,
   },
@@ -47,11 +57,8 @@ const packages = [
     term: "12-month",
     videos: "10/mo",
     shootDays: "4/mo",
-    photos: true,
-    drone: true,
     socialCuts: true,
     revisions: "Unlimited",
-    delivery: "5 days",
     extras: ["Quarterly strategy session", "Usage rights"],
     highlighted: false,
   },
@@ -68,6 +75,25 @@ export default function Pricing() {
             subtitle="Monthly retainers for agents, developers, and builders who need content every month — or a single listing when that's all you need."
             centered
           />
+        </FadeIn>
+
+        <FadeIn className="-mt-6 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-xl border border-[#222] bg-[#141414] px-6 py-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-accent">
+              On every retainer
+            </p>
+            {universal.map((item) => (
+              <p
+                key={item}
+                className="flex items-center gap-2 text-[#F5F5F5] text-sm"
+              >
+                <span aria-hidden="true" className="text-accent">
+                  ✓
+                </span>
+                {item}
+              </p>
+            ))}
+          </div>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">

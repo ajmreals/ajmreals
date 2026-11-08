@@ -61,7 +61,7 @@ export const faq: FaqItem[] = [
   {
     question: "How soon do I get the files?",
     answer:
-      "A single listing is back with you within four days of the shoot — that's a ceiling, not an average. On a retainer, delivery is written into the package: 10 days on Starter, 7 on Growth, and 5 on Partner, counted from each shoot.",
+      "Within four days of the shoot — that's a ceiling, not an average, and it's the same on a single listing as on any retainer tier. Turnaround is a capability, not something you should have to pay more for.",
   },
   {
     question: "How many rounds of revisions do I get?",

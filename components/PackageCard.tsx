@@ -6,12 +6,8 @@ interface PackageCardProps {
   term: string;
   videos: string;
   shootDays: string;
-  /** Included on every tier, deliberately uncounted — see Pricing.tsx. */
-  photos: boolean;
-  drone: boolean;
   socialCuts: boolean;
   revisions: string;
-  delivery: string;
   extras: string[];
   highlighted?: boolean;
 }
@@ -22,11 +18,8 @@ export default function PackageCard({
   term,
   videos,
   shootDays,
-  photos,
-  drone,
   socialCuts,
   revisions,
-  delivery,
   extras,
   highlighted = false,
 }: PackageCardProps) {
@@ -57,11 +50,8 @@ export default function PackageCard({
       <div className="border-t border-[#222] pt-6 flex flex-col gap-3 flex-1">
         <Feature label="Videos" value={videos} />
         <Feature label="Shoot days" value={shootDays} />
-        <Feature label="Photos" value={photos ? "✓" : "—"} highlight={photos} />
-        <Feature label="Drone" value={drone ? "✓" : "—"} highlight={drone} />
         <Feature label="Social cuts" value={socialCuts ? "✓" : "—"} highlight={socialCuts} />
         <Feature label="Revisions" value={revisions} />
-        <Feature label="Delivery" value={delivery} />
         {extras.map((extra) => (
           <Feature key={extra} label={extra} value="✓" highlight />
         ))}
