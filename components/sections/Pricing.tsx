@@ -142,7 +142,13 @@ export default function Pricing() {
               className="text-[#F5F5F5] underline underline-offset-4 hover:no-underline"
             >
               {"Let's talk."}
-            </a>
+            </a>{" "}
+            <Link
+              href="/faq"
+              className="text-[#888] underline underline-offset-4 hover:text-[#F5F5F5] hover:no-underline"
+            >
+              Or read the FAQ.
+            </Link>
           </p>
         </FadeIn>
       </div>

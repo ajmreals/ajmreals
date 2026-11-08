@@ -57,4 +57,5 @@ Available at /checklist.
 - / — overview, work, pricing
 - /portfolio — listing films
 - /checklist — free pre-shoot checklist
+- /faq — pricing, turnaround, service area, how a shoot runs
 - /contact — inquiries and booking

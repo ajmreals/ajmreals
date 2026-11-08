@@ -25,6 +25,12 @@ export default function Footer() {
               Packages
             </a>
             <Link
+              href="/faq"
+              className="text-sm text-[#888] hover:text-[#F5F5F5] transition-colors"
+            >
+              FAQ
+            </Link>
+            <Link
               href="/contact"
               className="text-sm text-[#888] hover:text-[#F5F5F5] transition-colors"
             >
