@@ -49,7 +49,8 @@ export default function StructuredData() {
             {
               "@type": "Offer",
               name: "Starter retainer",
-              description: "2 videos and 5 edited photos a month. 3-month minimum.",
+              description:
+                "2 videos a month plus edited photography. 3-month minimum.",
               price: "1500",
               priceCurrency: "USD",
             },
@@ -57,7 +58,7 @@ export default function StructuredData() {
               "@type": "Offer",
               name: "Growth retainer",
               description:
-                "5 videos, 15 edited photos, drone and social cuts a month. 6-month minimum.",
+                "5 videos a month plus edited photography, drone and social cuts. 6-month minimum.",
               price: "3000",
               priceCurrency: "USD",
             },
@@ -65,7 +66,7 @@ export default function StructuredData() {
               "@type": "Offer",
               name: "Partner retainer",
               description:
-                "10 videos, 30+ edited photos, drone, social cuts and usage rights a month. 12-month term.",
+                "10 videos a month plus edited photography, drone, social cuts and usage rights. 12-month term.",
               price: "5500",
               priceCurrency: "USD",
             },

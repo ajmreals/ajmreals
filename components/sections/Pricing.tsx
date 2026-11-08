@@ -4,6 +4,10 @@ import SectionHeader from "@/components/SectionHeader";
 import PackageCard from "@/components/PackageCard";
 import { site } from "@/lib/site";
 
+// Photos are included on every tier and deliberately not counted. A number
+// here reads as a cap, and "5 photos" undersells a shoot that produces far
+// more than that — the count argued against the package instead of for it.
+// On a one-off they stay a priced add-on, where a buyer does need the number.
 const packages = [
   {
     name: "Starter",
@@ -11,7 +15,7 @@ const packages = [
     term: "3-month minimum",
     videos: "2/mo",
     shootDays: "1/mo",
-    photos: "5 edited",
+    photos: true,
     drone: false,
     socialCuts: false,
     revisions: "1 round",
@@ -25,7 +29,7 @@ const packages = [
     term: "6-month minimum",
     videos: "5/mo",
     shootDays: "2/mo",
-    photos: "15 edited",
+    photos: true,
     drone: true,
     socialCuts: true,
     revisions: "2 rounds",
@@ -39,7 +43,7 @@ const packages = [
     term: "12-month",
     videos: "10/mo",
     shootDays: "4/mo",
-    photos: "30+ edited",
+    photos: true,
     drone: true,
     socialCuts: true,
     revisions: "Unlimited",

@@ -41,7 +41,7 @@ export const faq: FaqItem[] = [
   {
     question: "Do you shoot photos as well as video?",
     answer:
-      "Yes. On a single listing, photos are a $275 add-on. Every retainer includes them: 5 edited photos a month on Starter, 15 on Growth, and 30 or more on Partner.",
+      "Yes. Edited photography is included on every retainer tier — we shoot what the property needs rather than working to a set number. On a single listing, photos are a $275 add-on.",
   },
   {
     question: "Do you fly a drone?",
