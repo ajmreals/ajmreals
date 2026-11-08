@@ -49,6 +49,11 @@ export const faq: FaqItem[] = [
       "Drone aerials are included in the Growth and Partner retainers. On a single listing or a Starter retainer, mention it when you book and we'll quote it. Drone needs clear skies and wind under 20 mph — we watch the forecast and will call it off rather than deliver footage that looks rough.",
   },
   {
+    question: "Are you licensed to fly the drone?",
+    answer:
+      "Yes. AJM Reals holds an FAA Part 107 Remote Pilot Certificate, which is what the FAA requires for commercial drone work. If your brokerage wants proof on file before a shoot, ask and we'll send it over.",
+  },
+  {
     question: "Which areas do you cover?",
     answer: `${site.areaServed.join(", ")}. Recent listings include Brooklyn, White Plains, and Lloyd Harbor. If the property sits outside those three states, get in touch anyway and we'll quote it with travel included.`,
     link: { href: "/portfolio", label: "See recent work" },
@@ -56,7 +61,7 @@ export const faq: FaqItem[] = [
   {
     question: "How soon do I get the files?",
     answer:
-      "Delivery is part of the package, counted from the shoot: 10 days on Starter, 7 on Growth, and 5 on Partner. If a particular listing needs to be live sooner than that, say so before you book rather than after.",
+      "A single listing is back with you within four days of the shoot — that's a ceiling, not an average. On a retainer, delivery is written into the package: 10 days on Starter, 7 on Growth, and 5 on Partner, counted from each shoot.",
   },
   {
     question: "How many rounds of revisions do I get?",
@@ -67,6 +72,16 @@ export const faq: FaqItem[] = [
     question: "How long is the retainer term?",
     answer:
       "Starter runs on a 3-month minimum, Growth on 6 months, and Partner is a 12-month term. A single listing has no term at all — it's one shoot, one invoice.",
+  },
+  {
+    question: "How does payment work?",
+    answer:
+      "Half up front as a deposit, and the balance on the day of the shoot. As soon as the deposit comes through we send an invoice for the remaining half, so the outstanding amount is in writing before we arrive.",
+  },
+  {
+    question: "Does the seller need to be out of the house?",
+    answer:
+      "Up to them — present or not is fine either way. The one thing that genuinely costs time is the owner following the crew from room to room, so if they'd rather stay, the easiest arrangement is to settle somewhere we've already shot.",
   },
   {
     question: "How long are you on site?",

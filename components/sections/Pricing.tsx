@@ -92,7 +92,8 @@ export default function Pricing() {
                 <p className="text-[#888] text-sm leading-relaxed max-w-md">
                   One cinematic walkthrough video of your listing, for homes up
                   to 1,000 sq ft. Add $75 per additional 500 sq ft. No
-                  retainer, no minimum term.
+                  retainer, no minimum term — and back with you within four
+                  days of the shoot.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2">

@@ -27,6 +27,18 @@ export default function StructuredData() {
           "@type": "AdministrativeArea",
           name,
         })),
+        // The certificate the FAA requires for commercial drone work. Worth
+        // publishing as structured data rather than only as prose: it's the
+        // first thing a brokerage's compliance desk asks about.
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          name: "FAA Part 107 Remote Pilot Certificate",
+          credentialCategory: "license",
+          recognizedBy: {
+            "@type": "GovernmentOrganization",
+            name: "Federal Aviation Administration",
+          },
+        },
         knowsAbout: [
           "Real estate videography",
           "Listing walkthrough video",
@@ -42,7 +54,7 @@ export default function StructuredData() {
               "@type": "Offer",
               name: "Single listing film",
               description:
-                "One cinematic walkthrough video for homes up to 1,000 sq ft. Photos and a 2D floor plan available as add-ons.",
+                "One cinematic walkthrough video for homes up to 1,000 sq ft, delivered within 4 days of the shoot. Photos and a 2D floor plan available as add-ons.",
               price: "400",
               priceCurrency: "USD",
             },
