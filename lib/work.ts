@@ -46,7 +46,7 @@ export const work: WorkItem[] = [
     // Not a listing: a launch film for two agents starting a team at Compass.
     vimeoId: "1244819050",
     title: "Daniel & Brianna, Compass",
-    location: "Rockaway & Brooklyn, NY",
+    location: "Rockaway, Queens",
     category: "Agent Brand Film",
     type: "Real Estate",
     aspect: "9 / 16",
