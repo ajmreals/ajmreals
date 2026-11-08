@@ -43,6 +43,9 @@ export default function PortfolioPage({
   const href = (f: string) =>
     f === "All" ? "/portfolio" : `/portfolio?filter=${encodeURIComponent(f)}`;
 
+  // Lead frame runs full width beneath the films; the rest sit two-up.
+  const [lead, ...restPhotos] = photos;
+
   return (
     <main id="main-content" className="pt-24 pb-24">
       <div className="max-w-6xl mx-auto px-6">
@@ -127,35 +130,53 @@ export default function PortfolioPage({
           </>
         )}
 
-        {/* Stills, below the films. Photography is included on every retainer
-            and sold on one-offs, so it needs showing — but it sits under the
-            films because the films are the stronger case. Hidden when the
-            visitor has filtered to a specific kind of film. */}
+        {/* Frames from the films, below the films themselves. Called what
+            they are rather than "photography": these are ~1600px grabs, not
+            the deliverable someone paying $275 for stills receives, and
+            promising the one while showing the other is a complaint waiting
+            to happen. Hidden when the visitor has filtered to a kind of
+            film. */}
         {photos.length > 0 && active === "All" && (
           <section className="mt-24 pt-16 border-t border-[#222]">
             <FadeIn className="mb-10">
               <SectionHeader
-                label="Photography"
-                title="Stills."
-                subtitle="Edited photography is included on every retainer and available on a single listing."
+                label="Stills"
+                title="Frames from the films."
+                subtitle="Single frames pulled from recent listing films, drone included. Dedicated photography is a separate deliverable — included on every retainer, and an add-on on a single listing."
               />
             </FadeIn>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-              {photos.map((photo, i) => (
-                <FadeIn key={photo.src} delay={i * 0.1}>
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    width={photo.width}
-                    height={photo.height}
-                    // Two up from the lg breakpoint, full width below it.
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="w-full h-auto rounded-lg border border-[#222]"
-                  />
-                </FadeIn>
-              ))}
-            </div>
+            {/* Lead frame full width, the rest two-up — same shape as the
+                home page's featured work. */}
+            <FadeIn>
+              <Image
+                src={lead.src}
+                alt={lead.alt}
+                width={lead.width}
+                height={lead.height}
+                priority
+                sizes="(min-width: 1152px) 1088px, 100vw"
+                className="w-full h-auto rounded-lg border border-[#222]"
+              />
+            </FadeIn>
+
+            {restPhotos.length > 0 && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-6 lg:mt-8">
+                {restPhotos.map((photo, i) => (
+                  <FadeIn key={photo.src} delay={i * 0.1}>
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      width={photo.width}
+                      height={photo.height}
+                      // Two up from the lg breakpoint, full width below it.
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="w-full h-auto rounded-lg border border-[#222]"
+                    />
+                  </FadeIn>
+                ))}
+              </div>
+            )}
           </section>
         )}
       </div>
