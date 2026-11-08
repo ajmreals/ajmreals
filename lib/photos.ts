@@ -31,6 +31,12 @@ export const photos: Photo[] = [
     height: 1280,
   },
   {
+    src: "/photography/interior-bedroom.jpg",
+    alt: "Bedroom with a made bed, grey walls, a white panelled door and a hardwood floor, lit evenly with no hard shadow.",
+    width: 1920,
+    height: 1280,
+  },
+  {
     src: "/photography/exterior-colonial.jpg",
     alt: "Front elevation of a white colonial home with an enclosed porch and mature trees, photographed straight on under overcast light.",
     width: 1920,
