@@ -1,24 +1,23 @@
 /**
  * Stills shown on the portfolio page beneath the films.
  *
- * These are single frames pulled from AJM Reals' listing films, and the
- * section says so. That distinction is not pedantry: a frame grab is ~1600px
- * with no RAW latitude, and it is not what a client paying $275 for
- * photography receives. Labelling frames as photography samples would set an
- * expectation the deliverable can't meet, which is the kind of thing a client
- * notices exactly once.
- *
- * What they do prove is the eye — framing, staging, how a room is lit — and
- * the drone work, which had no still anywhere on the site before.
+ * Split into two lists on purpose. `photographs` are shot on a stills camera
+ * and are what a client paying for photography actually receives.  `frames`
+ * are single frames lifted from listing films: ~1600px with no RAW latitude,
+ * nothing like the deliverable. Showing the second under the name of the
+ * first would set an expectation that breaks on first delivery, so the page
+ * labels each for what it is.
  *
  * The bar for anything added here: the Pre-Shoot Checklist we hand out tells
  * agents to clear counters, open every blind, match bulb temperatures, keep
  * pets and their things out of frame, and move cars off the drive. A
  * portfolio shot that breaks the rules we publish argues against us twice —
- * once on its own merits and once by undercutting the checklist. Interiors
- * also need their windows held rather than blown to white, which means
- * bracketing or a bounced flash: a room runs several stops darker than what
- * is outside it.
+ * once on its own merits and once by undercutting the checklist.
+ *
+ * Interiors also need their windows held rather than blown to white, which
+ * means bracketing or a bounced flash: a room runs several stops darker than
+ * what is outside it. That is the difference between the shots that are here
+ * and the ones that aren't.
  *
  * Resize to 1920px wide (never upscale) and strip EXIF before adding
  * anything. Stripping is not about file size: camera GPS tags would publish
@@ -34,8 +33,18 @@ export type Photo = {
   height: number;
 };
 
-// First runs full width — it's the lead. The rest sit two-up beneath it.
-export const photos: Photo[] = [
+/** Shot on a stills camera — the photography deliverable itself. */
+export const photographs: Photo[] = [
+  {
+    src: "/photography/photo-living-room.jpg",
+    alt: "Staged living room with a grey sofa, black side tables and a pale rug on oak flooring, exposed so the street stays visible through the large black-framed window.",
+    width: 1780,
+    height: 884,
+  },
+];
+
+/** Lifted from the listing films. First runs full width as the lead. */
+export const frames: Photo[] = [
   {
     src: "/photography/frame-aerial-estate.jpg",
     alt: "Aerial view of a white estate set into a wooded hillside, with terraced lawns and a rear deck, shot from a drone under a clear blue sky.",

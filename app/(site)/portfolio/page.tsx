@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 import VimeoEmbed from "@/components/VimeoEmbed";
 import { work } from "@/lib/work";
-import { photos } from "@/lib/photos";
+import { photographs, frames } from "@/lib/photos";
 import { site } from "@/lib/site";
 
 // A server component on purpose. It was client-side for useState filters,
@@ -44,7 +44,7 @@ export default function PortfolioPage({
     f === "All" ? "/portfolio" : `/portfolio?filter=${encodeURIComponent(f)}`;
 
   // Lead frame runs full width beneath the films; the rest sit two-up.
-  const [lead, ...restPhotos] = photos;
+  const [leadFrame, ...restFrames] = frames;
 
   return (
     <main id="main-content" className="pt-24 pb-24">
@@ -130,19 +130,48 @@ export default function PortfolioPage({
           </>
         )}
 
-        {/* Frames from the films, below the films themselves. Called what
-            they are rather than "photography": these are ~1600px grabs, not
-            the deliverable someone paying $275 for stills receives, and
-            promising the one while showing the other is a complaint waiting
-            to happen. Hidden when the visitor has filtered to a kind of
-            film. */}
-        {photos.length > 0 && active === "All" && (
+        {/* Photography proper — the deliverable itself, shot on a stills
+            camera. Kept separate from the film frames below so neither is
+            passed off as the other. Both hidden when the visitor has
+            filtered to a particular kind of film. */}
+        {photographs.length > 0 && active === "All" && (
           <section className="mt-24 pt-16 border-t border-[#222]">
             <FadeIn className="mb-10">
               <SectionHeader
-                label="Stills"
-                title="Frames from the films."
-                subtitle="Single frames pulled from recent listing films, drone included. Dedicated photography is a separate deliverable — included on every retainer, and an add-on on a single listing."
+                label="Photography"
+                title="Stills."
+                subtitle="Edited photography, included on every retainer and available as an add-on on a single listing."
+              />
+            </FadeIn>
+
+            <div className="flex flex-col gap-6 lg:gap-8">
+              {photographs.map((photo, i) => (
+                <FadeIn key={photo.src} delay={i * 0.1}>
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.width}
+                    height={photo.height}
+                    sizes="(min-width: 1152px) 1088px, 100vw"
+                    className="w-full h-auto rounded-lg border border-[#222]"
+                  />
+                </FadeIn>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Frames lifted from the films. Called what they are: ~1600px grabs
+            are not what someone paying for photography receives, and
+            promising the one while showing the other is a complaint waiting
+            to happen. */}
+        {frames.length > 0 && active === "All" && (
+          <section className="mt-24 pt-16 border-t border-[#222]">
+            <FadeIn className="mb-10">
+              <SectionHeader
+                label="From the films"
+                title="Frames."
+                subtitle="Single frames lifted from recent listing films, drone included — not photography deliverables, but the same eye."
               />
             </FadeIn>
 
@@ -150,19 +179,18 @@ export default function PortfolioPage({
                 home page's featured work. */}
             <FadeIn>
               <Image
-                src={lead.src}
-                alt={lead.alt}
-                width={lead.width}
-                height={lead.height}
-                priority
+                src={leadFrame.src}
+                alt={leadFrame.alt}
+                width={leadFrame.width}
+                height={leadFrame.height}
                 sizes="(min-width: 1152px) 1088px, 100vw"
                 className="w-full h-auto rounded-lg border border-[#222]"
               />
             </FadeIn>
 
-            {restPhotos.length > 0 && (
+            {restFrames.length > 0 && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-6 lg:mt-8">
-                {restPhotos.map((photo, i) => (
+                {restFrames.map((photo, i) => (
                   <FadeIn key={photo.src} delay={i * 0.1}>
                     <Image
                       src={photo.src}
