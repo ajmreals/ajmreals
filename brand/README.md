@@ -5,7 +5,7 @@ Green `#2A9D8F` on black `#0A0A0A`, the site's own accent and background.
 Regenerate everything with:
 
 ```
-python3.13 scripts/make-logo.py public/brand
+python3.13 scripts/make-logo.py brand
 ```
 
 ## Which file to use
