@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { trackLead } from "@/lib/analytics";
+import Turnstile from "@/components/Turnstile";
 import { requestChecklist } from "@/app/(site)/checklist/actions";
 
 const PDF_PATH = "/ajm-reals-pre-shoot-checklist.pdf";
@@ -13,6 +14,7 @@ export default function ChecklistForm() {
     email: "",
     brokerage: "",
     website: "", // honeypot — real people never see or fill this
+    turnstileToken: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -125,6 +127,11 @@ export default function ChecklistForm() {
             onChange={(e) => setForm({ ...form, website: e.target.value })}
           />
         </div>
+
+        {/* Renders nothing until the Cloudflare site key is set. */}
+        <Turnstile
+          onToken={(t) => setForm((f) => ({ ...f, turnstileToken: t }))}
+        />
 
         {error && (
           <p

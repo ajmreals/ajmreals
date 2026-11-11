@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
+import Turnstile from "@/components/Turnstile";
 import { trackLead } from "@/lib/analytics";
 import { submitLead } from "@/app/(site)/contact/actions";
 
@@ -23,6 +24,7 @@ export default function ContactForm() {
     package: "",
     message: "",
     website: "", // honeypot — real people never see or fill this
+    turnstileToken: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -149,6 +151,11 @@ export default function ContactForm() {
             onChange={(e) => setForm({ ...form, website: e.target.value })}
           />
         </div>
+
+        {/* Renders nothing until the Cloudflare site key is set. */}
+        <Turnstile
+          onToken={(t) => setForm((f) => ({ ...f, turnstileToken: t }))}
+        />
 
         {error && (
           <p
