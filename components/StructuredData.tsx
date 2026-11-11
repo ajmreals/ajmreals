@@ -55,7 +55,7 @@ export default function StructuredData() {
               name: "Single listing film",
               description:
                 "One cinematic walkthrough video for homes up to 1,000 sq ft, delivered within 4 days of the shoot. Photos and a 2D floor plan available as add-ons.",
-              price: "400",
+              price: "500",
               priceCurrency: "USD",
             },
             {

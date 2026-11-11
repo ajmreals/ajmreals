@@ -24,18 +24,18 @@ export const faq: FaqItem[] = [
   {
     question: "Do I have to sign up for a monthly retainer?",
     answer:
-      "No. A single listing is $400 with no retainer and no minimum term — book one when you need one. The monthly retainers are there for agents, developers, and builders who want content every month and would rather not rebook each time.",
+      "No. A single listing is $500 with no retainer and no minimum term — book one when you need one. The monthly retainers are there for agents, developers, and builders who want content every month and would rather not rebook each time.",
     link: { href: "/#packages", label: "See all packages" },
   },
   {
-    question: "What do I get for the $400 single listing?",
+    question: "What do I get for the $500 single listing?",
     answer:
       "One cinematic walkthrough film of the property, shot, edited, and delivered ready for MLS, social, and email — for homes up to 1,000 sq ft. Photos are an extra $275, a 2D floor plan an extra $50, or both together for $300.",
   },
   {
     question: "What if the home is bigger than 1,000 sq ft?",
     answer:
-      "Add $75 for each additional 500 sq ft. A 2,000 sq ft home works out at $550 — the $400 base plus two increments. For anything substantially larger, get in touch and we'll quote the job properly.",
+      "Add $75 for each additional 500 sq ft. A 2,000 sq ft home works out at $650 — the $500 base plus two increments. For anything substantially larger, get in touch and we'll quote the job properly.",
     link: { href: "/contact", label: "Get a quote" },
   },
   {

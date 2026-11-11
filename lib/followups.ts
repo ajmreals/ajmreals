@@ -47,7 +47,7 @@ export const sequence: FollowUp[] = [
     body: (name) => [
       `Hi ${name},`,
       "Quick one — we shoot single listings with no retainer and no minimum.",
-      { tip: "🎥 Walkthrough film — $400\n📸 Add photos — $275\n📐 Add a 2D floor plan — $50\n✨ Both — $300\n\nUp to 1,000 sq ft. Larger homes +$75 per 500 sq ft." },
+      { tip: "🎥 Walkthrough film — $500\n📸 Add photos — $275\n📐 Add a 2D floor plan — $50\n✨ Both — $300\n\nUp to 1,000 sq ft. Larger homes +$75 per 500 sq ft." },
       `We cover ${site.areaServed.join(", ")}.`,
       "No pressure — if the checklist was the useful bit, that's great too 👍",
     ],

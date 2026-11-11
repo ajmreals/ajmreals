@@ -26,16 +26,22 @@ import { site } from "@/lib/site";
  * A retainer has to cost less than buying the same work one listing at a
  * time, or there is no reason on earth to sign a 3-month minimum.
  *
- * One listing à la carte is $400 for the film plus $275 for photos = $675.
+ * One listing à la carte is $500 for the film plus $275 for photos = $775.
  * Against that, a month of each tier:
  *
- *   Starter   2 listings   $1,350 à la carte   →  $1,250   −7%
- *   Growth    5 listings   $3,375 à la carte   →  $3,000  −11%
- *   Partner  10 listings   $6,750 à la carte   →  $5,500  −19%
+ *   Starter   2 listings   $1,550 à la carte   →  $1,250  −19%
+ *   Growth    5 listings   $3,875 à la carte   →  $3,000  −23%
+ *   Partner  10 listings   $7,750 à la carte   →  $5,500  −29%
  *
  * At $1,500 Starter came to $150 MORE than à la carte while also asking for
- * a three-month commitment — an offer that argues against itself. Growth and
- * Partner were already genuine discounts and are untouched.
+ * a three-month commitment — an offer that argues against itself. Dropping it
+ * to $1,250 fixed the inversion; raising the one-off from $400 to $500 then
+ * widened every tier's discount without touching a retainer.
+ *
+ * Note what this still does not fix: per VIDEO, Starter is $625 against a
+ * $500 one-off, and no realistic price makes that comparison favourable,
+ * because the retainers bundle photos and the cards lead with video counts.
+ * The fully-loaded per-listing figures above are the honest comparison.
  *
  * Any future move to these numbers has to keep that ladder monotonic. Raising
  * a retainer or cutting the one-off without checking the table above is how
@@ -134,7 +140,7 @@ export default function Pricing() {
                 </p>
                 <div className="flex items-baseline gap-3 mb-3">
                   <p className="text-3xl font-heading font-bold text-[#F5F5F5]">
-                    $400
+                    $500
                   </p>
                   <p className="text-[#888] text-sm">one-off</p>
                 </div>

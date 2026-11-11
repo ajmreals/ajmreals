@@ -15,7 +15,7 @@ export const site = {
   legalName: "AJM Reals",
   tagline: "Real Estate Video, Drone & Photography",
   description:
-    "Cinematic listing films, drone aerials, and photography for real estate agents, developers, and builders across New York, New Jersey, and Connecticut. Monthly retainers or one-off listings from $400.",
+    "Cinematic listing films, drone aerials, and photography for real estate agents, developers, and builders across New York, New Jersey, and Connecticut. Monthly retainers or one-off listings from $500.",
   email: "acruz928@gmail.com",
   /**
    * Envelope sender for outbound mail. Uses the send. subdomain verified in

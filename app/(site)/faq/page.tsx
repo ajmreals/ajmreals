@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `FAQ — ${site.name}`,
     description:
-      "What the $400 single listing includes, how fast you get the files, and how to prep the property.",
+      "What the $500 single listing includes, how fast you get the files, and how to prep the property.",
     url: "/faq",
   },
 };
