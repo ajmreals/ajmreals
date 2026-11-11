@@ -8,7 +8,27 @@ Ordered by what they're worth.
 
 ---
 
-## 1. Google Search Console — 10 minutes, free, highest value
+## ~~1. Google Search Console~~ — DONE, 11 Nov
+
+Verified via the Google Analytics property, sitemap submitted, all five pages
+listed. Nothing further to do; it populates on its own.
+
+- **Within a day** the sitemap status flips from "Couldn't fetch" to Success.
+  That status only means Google logged the submission before actually reading
+  the file — the sitemap was confirmed healthy by opening it directly.
+- **2–7 days** until pages show under Indexing → Pages.
+- **Performance** stays empty until people arrive through search.
+
+One thing that now matters: **do not remove Google Analytics from the site.**
+Ownership was verified through it, so taking it out un-verifies the property
+silently. The snippet also has to stay in `<head>` — that is why it is no
+longer loaded through next/script.
+
+Optional, any time: **URL Inspection** → paste the homepage → **Request
+indexing**. It jumps the queue, turning days into hours. Purely a speed-up.
+
+<details>
+<summary>Original steps, kept for reference</summary>
 
 Right now Google does not know the site exists. Nothing else on this list
 matters as much.
@@ -32,6 +52,8 @@ site (`G-DQD7P628G5`), and Search Console accepts that as proof of ownership.
 
 Indexing takes a few days to a couple of weeks. Check back in a week under
 **Pages** to see what Google has accepted.
+
+</details>
 
 ---
 

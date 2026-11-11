@@ -4,6 +4,13 @@
  * Renders nothing unless NEXT_PUBLIC_GA_ID is set, so local and preview runs
  * stay out of the reporting.
  *
+ * DO NOT REMOVE, AND DO NOT MOVE OUT OF <head>. Search Console ownership for
+ * www.ajmreals.nyc was verified through this Analytics property on 11 Nov
+ * 2026. Deleting the snippet, or putting it back in <body>, un-verifies the
+ * property — silently, with no error anywhere, and the site drops out of
+ * Search Console. If GA ever has to go, add a second verification method
+ * first (Settings → Ownership verification).
+ *
  * Deliberately plain <script> tags rather than next/script, and rendered
  * inside <head> from the root layout. next/script's afterInteractive strategy
  * puts the snippet in <body>, which works fine for analytics but fails Search
