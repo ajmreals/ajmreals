@@ -21,6 +21,25 @@ import { site } from "@/lib/site";
  *
  * Three identical rows would have made the ladder look weaker than it is,
  * hence lifting them out: the cards now carry only what actually differs.
+ *
+ * ── Why Starter is $1,250 and not $1,500 ───────────────────────────────────
+ * A retainer has to cost less than buying the same work one listing at a
+ * time, or there is no reason on earth to sign a 3-month minimum.
+ *
+ * One listing à la carte is $400 for the film plus $275 for photos = $675.
+ * Against that, a month of each tier:
+ *
+ *   Starter   2 listings   $1,350 à la carte   →  $1,250   −7%
+ *   Growth    5 listings   $3,375 à la carte   →  $3,000  −11%
+ *   Partner  10 listings   $6,750 à la carte   →  $5,500  −19%
+ *
+ * At $1,500 Starter came to $150 MORE than à la carte while also asking for
+ * a three-month commitment — an offer that argues against itself. Growth and
+ * Partner were already genuine discounts and are untouched.
+ *
+ * Any future move to these numbers has to keep that ladder monotonic. Raising
+ * a retainer or cutting the one-off without checking the table above is how
+ * this breaks again.
  */
 const universal = [
   "Edited photography",
@@ -31,7 +50,7 @@ const universal = [
 const packages = [
   {
     name: "Starter",
-    price: "$1,500/mo",
+    price: "$1,250/mo",
     term: "3-month minimum",
     videos: "2/mo",
     shootDays: "1/mo",
