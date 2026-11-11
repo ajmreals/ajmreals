@@ -3,7 +3,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 import { faq } from "@/lib/faq";
-import { SITE_URL, site } from "@/lib/site";
+import { SITE_URL, site, OG_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "What the $500 single listing includes, how fast you get the files, and how to prep the property.",
     url: "/faq",
+    images: [OG_IMAGE],
   },
 };
 

@@ -6,7 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import VimeoEmbed from "@/components/VimeoEmbed";
 import { work } from "@/lib/work";
 import { photographs, frames } from "@/lib/photos";
-import { site } from "@/lib/site";
+import { site, OG_IMAGE } from "@/lib/site";
 
 // A server component on purpose. It was client-side for useState filters,
 // which meant it could not export metadata — so it shared the home page's
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     title: `Portfolio — ${site.name}`,
     description: "Recent listing films, drone aerials, and photography.",
     url: "/portfolio",
+    images: [OG_IMAGE],
   },
 };
 

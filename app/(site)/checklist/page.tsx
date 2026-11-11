@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 import ChecklistForm from "@/components/ChecklistForm";
+import { OG_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
   // The root layout appends "— AJM Reals", so the brand is left off here.
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
       "What to prep at 48 hours, 24 hours, and the morning of a real estate shoot. Free two-page PDF from AJM Reals.",
     type: "article",
     url: "/checklist",
+    images: [OG_IMAGE],
   },
 };
 

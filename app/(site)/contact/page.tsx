@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import SectionHeader from "@/components/SectionHeader";
 import ContactForm from "@/components/ContactForm";
-import { site } from "@/lib/site";
+import { site, OG_IMAGE } from "@/lib/site";
 
 // Server component so this page can carry its own title and description —
 // the form's client-side state lives in <ContactForm /> instead.
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     title: `Contact — ${site.name}`,
     description: "Tell us about your project. We reply within 24 hours.",
     url: "/contact",
+    images: [OG_IMAGE],
   },
 };
 

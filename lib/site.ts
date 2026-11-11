@@ -35,3 +35,23 @@ export const site = {
   // Google reads this as a rough band, not exact pricing.
   priceRange: "$$",
 } as const;
+
+/**
+ * The share card, for any page that sets its own `openGraph` block.
+ *
+ * Next merges the file-based app/opengraph-image.tsx into a page's metadata
+ * only for as long as that page leaves `openGraph` alone. The moment a page
+ * sets its own title or description there, the inherited image is dropped —
+ * silently, with nothing broken on the page itself. The only symptom is that
+ * sharing the link anywhere renders a bare URL with no picture, which is
+ * exactly the moment it matters most.
+ *
+ * So every page that sets `openGraph` must also name `images: [OG_IMAGE]`.
+ * Four pages — portfolio, checklist, FAQ and contact — had lost it this way.
+ */
+export const OG_IMAGE = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: `${site.name} — ${site.tagline}`,
+} as const;
