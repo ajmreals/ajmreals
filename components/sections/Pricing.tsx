@@ -29,14 +29,23 @@ import { site } from "@/lib/site";
  * One listing à la carte is $500 for the film plus $275 for photos = $775.
  * Against that, a month of each tier:
  *
- *   Starter   2 listings   $1,550 à la carte   →  $1,250  −19%
- *   Growth    5 listings   $3,875 à la carte   →  $3,000  −23%
- *   Partner  10 listings   $7,750 à la carte   →  $5,500  −29%
+ *   Starter   2 listings   $1,550 à la carte   →  $1,250  −19%   saves   $300
+ *   Growth    5 listings   $3,875 à la carte   →  $2,875  −26%   saves $1,000
+ *   Partner  10 listings   $7,750 à la carte   →  $5,250  −32%   saves $2,500
  *
  * At $1,500 Starter came to $150 MORE than à la carte while also asking for
  * a three-month commitment — an offer that argues against itself. Dropping it
  * to $1,250 fixed the inversion; raising the one-off from $400 to $500 then
  * widened every tier's discount without touching a retainer.
+ *
+ * Growth and Partner were then set to the prices that make the saving land on
+ * $1,000 and $2,500. $875 and $2,250 were the same deal and nobody repeats
+ * them; a round number is the one a client quotes back to their broker. The
+ * $125 and $250 a month that costs is cheap for it.
+ *
+ * Starter keeps the shallowest discount on purpose. It asks for no commitment,
+ * so it earns the least — which gives the ladder its logic and gives Growth a
+ * reason to exist beyond volume.
  *
  * Note what this still does not fix: per VIDEO, Starter is $625 against a
  * $500 one-off, and no realistic price makes that comparison favourable,
@@ -85,8 +94,10 @@ const packages = [
   },
   {
     name: "Growth",
-    monthly: 3000,
-    term: "6-month minimum",
+    monthly: 2875,
+    // 3 rather than 6 months. A long lock is the barrier, not the price:
+    // nobody promises half a year to a supplier they have not hired before.
+    term: "3-month minimum",
     listings: 5,
     videos: "5/mo",
     shootDays: "2/mo",
@@ -97,8 +108,8 @@ const packages = [
   },
   {
     name: "Partner",
-    monthly: 5500,
-    term: "12-month",
+    monthly: 5250,
+    term: "6-month minimum",
     listings: 10,
     videos: "10/mo",
     shootDays: "4/mo",

@@ -70,16 +70,16 @@ export default function StructuredData() {
               "@type": "Offer",
               name: "Growth retainer",
               description:
-                "5 videos a month plus edited photography, drone and social cuts, delivered within 4 days of each shoot. 6-month minimum.",
-              price: "3000",
+                "5 videos a month plus edited photography, drone and social cuts, delivered within 4 days of each shoot. 3-month minimum.",
+              price: "2875",
               priceCurrency: "USD",
             },
             {
               "@type": "Offer",
               name: "Partner retainer",
               description:
-                "10 videos a month plus edited photography, drone, social cuts and usage rights, delivered within 4 days of each shoot. 12-month term.",
-              price: "5500",
+                "10 videos a month plus edited photography, drone, social cuts and usage rights, delivered within 4 days of each shoot. 6-month minimum.",
+              price: "5250",
               priceCurrency: "USD",
             },
           ],

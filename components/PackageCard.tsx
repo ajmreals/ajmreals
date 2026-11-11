@@ -63,6 +63,11 @@ export default function PackageCard({
           <div className="mt-4 rounded-lg border border-accent/30 bg-accent/5 px-4 py-3">
             <p className="text-accent text-sm font-medium">
               Save ${saving.toLocaleString()}/mo
+              {/* The yearly figure is the same discount and reads as several
+                  times the deal. It is what a client quotes to their broker. */}
+              <span className="text-accent/70">
+                {" · "}${(saving * 12).toLocaleString()}/yr
+              </span>
             </p>
             <p className="text-[#888] text-xs mt-0.5 leading-relaxed">
               {listings} listings booked separately: $
