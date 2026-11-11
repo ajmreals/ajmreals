@@ -43,9 +43,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      {/* GA has to be in <head>, not <body>: Search Console verifies ownership
+          through the Analytics property and rejects the tag anywhere else. */}
+      <head>
+        <Analytics />
+      </head>
       <body className="bg-background text-text-primary font-sans antialiased">
         <StructuredData />
-        <Analytics />
         {children}
       </body>
     </html>
