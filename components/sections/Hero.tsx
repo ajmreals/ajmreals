@@ -79,7 +79,7 @@ export default function Hero() {
           {/* Every figure here is a claim about the business — only put
               something in this list the owner has confirmed. */}
           {[
-            { value: "$100M", label: "In showings filmed" },
+            { value: "$60M", label: "In showings filmed" },
             { value: "Quick", label: "Turnaround" },
             { value: "Est. 2022", label: site.areaServedShort.join(" · ") },
           ].map((stat) => (
