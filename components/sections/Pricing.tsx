@@ -45,19 +45,37 @@ import { site } from "@/lib/site";
  *
  * Any future move to these numbers has to keep that ladder monotonic. Raising
  * a retainer or cutting the one-off without checking the table above is how
- * this breaks again.
+ * this breaks again — and the cards now derive the saving they advertise from
+ * these constants, so getting it wrong publishes a wrong number rather than
+ * just being wrong privately.
  */
+
+/** One-off prices the retainer saving is measured against. */
+const ONE_OFF_FILM = 500;
+const PHOTO_ADD_ON = 275;
+/** What one listing costs booked on its own, film and photos. */
+const PER_LISTING = ONE_OFF_FILM + PHOTO_ADD_ON;
+
 const universal = [
   "Edited photography",
   "Drone aerials",
   "Delivery within 4 days",
 ];
 
+/**
+ * `monthly` and `listings` are numbers, not strings, because the cards compute
+ * the advertised saving from them. Hand-typing "save $300" is how a price
+ * change quietly turns the pricing page into a false claim.
+ */
 const packages = [
   {
     name: "Starter",
-    price: "$1,250/mo",
-    term: "3-month minimum",
+    monthly: 1250,
+    // No minimum. The lock was worth less than the clients it cost: nobody
+    // signs three months with a supplier they have not worked with, and the
+    // tier exists to be a first yes.
+    term: "Month to month",
+    listings: 2,
     videos: "2/mo",
     shootDays: "1/mo",
     socialCuts: false,
@@ -67,8 +85,9 @@ const packages = [
   },
   {
     name: "Growth",
-    price: "$3,000/mo",
+    monthly: 3000,
     term: "6-month minimum",
+    listings: 5,
     videos: "5/mo",
     shootDays: "2/mo",
     socialCuts: true,
@@ -78,8 +97,9 @@ const packages = [
   },
   {
     name: "Partner",
-    price: "$5,500/mo",
+    monthly: 5500,
     term: "12-month",
+    listings: 10,
     videos: "10/mo",
     shootDays: "4/mo",
     socialCuts: true,
@@ -87,7 +107,12 @@ const packages = [
     extras: ["Quarterly strategy session", "Usage rights"],
     highlighted: false,
   },
-];
+].map((p) => ({
+  ...p,
+  price: `$${p.monthly.toLocaleString()}/mo`,
+  separately: p.listings * PER_LISTING,
+  saving: p.listings * PER_LISTING - p.monthly,
+}));
 
 export default function Pricing() {
   return (

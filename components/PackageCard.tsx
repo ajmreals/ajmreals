@@ -4,6 +4,12 @@ interface PackageCardProps {
   name: string;
   price: string;
   term: string;
+  /** Listings a month, used to state what the same work costs booked singly. */
+  listings: number;
+  /** What those listings cost one at a time. Computed in Pricing.tsx. */
+  separately: number;
+  /** separately − monthly. Computed, never typed. */
+  saving: number;
   videos: string;
   shootDays: string;
   socialCuts: boolean;
@@ -16,6 +22,9 @@ export default function PackageCard({
   name,
   price,
   term,
+  listings,
+  separately,
+  saving,
   videos,
   shootDays,
   socialCuts,
@@ -45,6 +54,22 @@ export default function PackageCard({
         </p>
         <p className="text-3xl font-heading font-bold text-[#F5F5F5]">{price}</p>
         <p className="text-[#888] text-sm mt-1">{term}</p>
+
+        {/* The discount, spelled out. Without it a visitor divides the monthly
+            by the video count, compares that to the one-off price and leaves —
+            the comparison that matters is a whole listing, film and photos,
+            and only this line makes it. */}
+        {saving > 0 && (
+          <div className="mt-4 rounded-lg border border-accent/30 bg-accent/5 px-4 py-3">
+            <p className="text-accent text-sm font-medium">
+              Save ${saving.toLocaleString()}/mo
+            </p>
+            <p className="text-[#888] text-xs mt-0.5 leading-relaxed">
+              {listings} listings booked separately: $
+              {separately.toLocaleString()}
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="border-t border-[#222] pt-6 flex flex-col gap-3 flex-1">

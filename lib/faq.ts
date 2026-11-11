@@ -71,7 +71,7 @@ export const faq: FaqItem[] = [
   {
     question: "How long is the retainer term?",
     answer:
-      "Starter runs on a 3-month minimum, Growth on 6 months, and Partner is a 12-month term. A single listing has no term at all — it's one shoot, one invoice.",
+      "Starter has no minimum — it runs month to month and you can stop whenever you like. Growth is a 6-month minimum and Partner a 12-month term. A single listing has no term at all either: one shoot, one invoice.",
   },
   {
     question: "How does payment work?",

@@ -62,7 +62,7 @@ export default function StructuredData() {
               "@type": "Offer",
               name: "Starter retainer",
               description:
-                "2 videos a month plus edited photography and drone aerials, delivered within 4 days of each shoot. 3-month minimum.",
+                "2 videos a month plus edited photography and drone aerials, delivered within 4 days of each shoot. Month to month, no minimum term.",
               price: "1250",
               priceCurrency: "USD",
             },
