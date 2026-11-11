@@ -43,20 +43,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-heading font-bold tracking-tight text-[#F5F5F5] leading-[1.05] mb-6"
+          className="text-5xl sm:text-6xl md:text-7xl font-heading font-bold tracking-tight text-[#F5F5F5] leading-[1.05] mb-12"
         >
           Content that{" "}
           <span className="text-accent">closes.</span>
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-[#888] text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12"
-        >
-          Monthly video, drone, and photography retainers for real estate and construction.
-        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
