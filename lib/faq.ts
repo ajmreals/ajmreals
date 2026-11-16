@@ -76,7 +76,8 @@ export const faq: FaqItem[] = [
   {
     question: "How does payment work?",
     answer:
-      "Half up front as a deposit, and the balance on the day of the shoot. As soon as the deposit comes through we send an invoice for the remaining half, so the outstanding amount is in writing before we arrive.",
+      "50% up front reserves your date, and the other 50% is paid on shoot day before we start filming. As soon as the deposit comes through we send an invoice for the remaining half, so the outstanding amount is in writing before we arrive. Need to move your date? Give us notice and we'll find a new time. If the balance isn't paid before we start, we reschedule and the deposit stays with us to cover the held date.",
+    link: { href: "/#payment", label: "See payment terms" },
   },
   {
     question: "Does the seller need to be out of the house?",

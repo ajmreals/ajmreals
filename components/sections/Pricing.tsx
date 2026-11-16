@@ -125,6 +125,27 @@ const packages = [
   saving: p.listings * PER_LISTING - p.monthly,
 }));
 
+/**
+ * Payment terms, shown as their own box under the prices so nobody books
+ * without seeing them. Same terms as the FAQ answer and the checkbox on the
+ * contact form — change one, change all three.
+ *
+ * The tone is deliberate: lead with what the client gets (a held date, full
+ * focus), keep the rule itself plain. Firm does not have to read as hostile.
+ */
+const paymentSteps = [
+  {
+    title: "To reserve your date",
+    body: "We hold it just for you.",
+  },
+  {
+    title: "On shoot day, before we start filming",
+    body: "This lets us give your property our full focus.",
+  },
+];
+const paymentNote =
+  "Need to move your date? Just give us notice and we'll find a new time. If the balance isn't paid before we start, we'll reschedule and the deposit stays with us to cover the held date.";
+
 export default function Pricing() {
   return (
     <section id="packages" className="py-28 md:py-40 border-t border-[#222]">
@@ -224,6 +245,43 @@ export default function Pricing() {
                 Book a listing
               </Link>
             </div>
+          </div>
+        </FadeIn>
+
+        {/* Payment terms. Accent border and its own box on purpose: this is
+            the one thing on the page a prospect must not skim past. */}
+        <FadeIn delay={0.35} className="mt-6 md:mt-8">
+          <div
+            id="payment"
+            className="rounded-xl border border-accent/40 bg-accent/5 p-8 md:p-10 scroll-mt-24"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-accent mb-3">
+              How payment works
+            </p>
+            <h3 className="text-2xl font-heading font-bold text-[#F5F5F5] mb-6">
+              Simple, fair payment.
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {paymentSteps.map((step) => (
+                <div
+                  key={step.title}
+                  className="rounded-lg border border-[#222] bg-[#141414] px-6 py-5"
+                >
+                  <p className="text-4xl font-heading font-bold text-accent">
+                    50%
+                  </p>
+                  <p className="text-[#F5F5F5] font-medium mt-2">
+                    {step.title}
+                  </p>
+                  <p className="text-[#888] text-sm mt-1 leading-relaxed">
+                    {step.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="text-[#888] text-sm leading-relaxed mt-6 max-w-3xl">
+              {paymentNote}
+            </p>
           </div>
         </FadeIn>
 

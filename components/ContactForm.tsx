@@ -26,6 +26,9 @@ export default function ContactForm() {
     website: "", // honeypot — real people never see or fill this
     turnstileToken: "",
   });
+  // Payment terms acknowledgement. Kept out of `form` because it is not
+  // sent anywhere — the browser's `required` is what stops the submit.
+  const [agreed, setAgreed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -151,6 +154,25 @@ export default function ContactForm() {
             onChange={(e) => setForm({ ...form, website: e.target.value })}
           />
         </div>
+
+        {/* Same terms as the box under the prices and the FAQ answer. */}
+        <label
+          htmlFor="payment-terms"
+          className="flex items-start gap-3 rounded-lg border border-accent/40 bg-accent/5 px-4 py-3.5 cursor-pointer"
+        >
+          <input
+            id="payment-terms"
+            type="checkbox"
+            required
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-accent cursor-pointer"
+          />
+          <span className="text-[#F5F5F5] text-sm leading-relaxed">
+            I understand 50% reserves my date and the other 50% is paid before
+            filming on shoot day.
+          </span>
+        </label>
 
         {/* Renders nothing until the Cloudflare site key is set. */}
         <Turnstile

@@ -39,8 +39,10 @@ request; delivery is the same 4 days.
 
 ## Booking and terms
 
-- Payment: half up front as a deposit, balance on the day of the shoot. An
-  invoice for the remaining half is sent once the deposit clears.
+- Payment: 50% up front reserves the date. The other 50% is paid on shoot
+  day, before filming starts. An invoice for the remaining half is sent once
+  the deposit clears. If the balance is not paid before the shoot starts, the
+  shoot is rescheduled and the deposit is kept to cover the held date.
 - Drone: flown under an FAA Part 107 Remote Pilot Certificate.
 - Sellers may be present during the shoot or not — either is fine.
 - Typical time on site: two to three hours for a listing.
